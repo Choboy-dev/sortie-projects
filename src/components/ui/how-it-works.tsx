@@ -32,12 +32,12 @@ export interface HowItWorksProps {
 const DEFAULT_CARD_POSITIONS: StepPosition[] = [
   { className: "md:absolute md:top-0 md:left-[15%]", rotate: "rotate-6" },
   {
-    className: "md:absolute md:top-[120px] md:right-[15%]",
+    className: "md:absolute md:top-[110px] md:right-[15%]",
     rotate: "-rotate-6",
   },
-  { className: "md:absolute md:top-[420px] md:left-[15%]", rotate: "rotate-6" },
+  { className: "md:absolute md:top-[360px] md:left-[15%]", rotate: "rotate-6" },
   {
-    className: "md:absolute md:top-[540px] md:right-[10%]",
+    className: "md:absolute md:top-[470px] md:right-[10%]",
     rotate: "-rotate-6",
   },
 ];
@@ -56,13 +56,13 @@ export default function HowItWorks({
   if (data.length <= 1) height = 400;
   else if (data.length === 2) height = 450;
   else if (data.length === 3) height = 800;
-  else height = 1050;
+  else height = 860;
 
   return (
     <LazyMotion features={domAnimation}>
       <div
         className={cn(
-          "relative bg-canvas px-6 py-20 max-md:pb-24 sm:px-8 sm:py-24",
+          "relative bg-canvas px-6 pb-6 pt-20 max-md:pb-10 sm:px-8 sm:pb-8 sm:pt-24",
           className,
         )}
       >
@@ -106,11 +106,11 @@ export default function HowItWorks({
                   const pathD = data.reduce((acc, _, index) => {
                     if (index >= data.length - 1) return acc;
                     if (index === 0)
-                      return "M 290 150 C 500 150, 550 270, 710 270";
+                      return "M 290 140 C 500 140, 550 250, 710 250";
                     if (index === 1)
-                      return `${acc} C 850 270, 500 350, 290 450`;
+                      return `${acc} C 850 250, 500 320, 290 400`;
                     if (index === 2)
-                      return `${acc} C 290 600, 550 720, 750 720`;
+                      return `${acc} C 290 520, 550 620, 750 620`;
                     return acc;
                   }, "");
                   return (

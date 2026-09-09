@@ -48,7 +48,7 @@ export function ValuePropsSection() {
         heading="Build exceptional teams, on demand"
         features={features}
       />
-      <div className="relative z-10 px-6 pb-16 pt-2 text-center sm:px-8 sm:pb-20 sm:pt-4">
+      <div className="relative z-10 px-6 pb-14 pt-0 text-center sm:px-8 sm:pb-16">
         <a
           className="inline-flex rounded-md bg-signal px-6 py-3.5 text-sm font-semibold text-white hover:bg-signal-strong active:scale-[0.98]"
           href="mailto:hello@sortieprojects.com?subject=Hire%20Sortie%20talent"
