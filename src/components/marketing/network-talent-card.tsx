@@ -36,18 +36,6 @@ export function NetworkTalentCard({ person }: { person: NetworkTalentPerson }) {
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover object-top"
         />
-        <div
-          className="pointer-events-none absolute bottom-0 left-0 h-0 w-0 border-b-[32px] border-l-[32px] border-b-transparent border-l-panel"
-          aria-hidden
-        />
-        <Image
-          src="/brand/sortie-mark.png"
-          alt=""
-          width={32}
-          height={28}
-          className="pointer-events-none absolute bottom-1.5 left-1.5 h-4 w-auto object-contain"
-          aria-hidden
-        />
       </div>
 
       <div className="flex flex-1 flex-col px-5 pb-5 pt-4">

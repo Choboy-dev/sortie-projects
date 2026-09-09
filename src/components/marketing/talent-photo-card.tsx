@@ -31,18 +31,6 @@ export function TalentPhotoCard({ person }: { person: TalentPerson }) {
           sizes="(max-width: 640px) 40vw, 180px"
           className="object-cover object-top"
         />
-        <div
-          className="pointer-events-none absolute bottom-0 left-0 h-0 w-0 border-b-[28px] border-l-[28px] border-b-transparent border-l-white"
-          aria-hidden
-        />
-        <Image
-          src="/brand/sortie-mark.png"
-          alt=""
-          width={28}
-          height={25}
-          className="pointer-events-none absolute bottom-1 left-1 h-3.5 w-auto object-contain"
-          aria-hidden
-        />
       </div>
 
       <div className="flex min-w-0 flex-1 flex-col justify-center px-3.5 py-3.5 sm:px-4">
