@@ -57,5 +57,3 @@ export const verification = mysqlTable("verification", {
   createdAt: timestamp("created_at").notNull().defaultNow(),
   updatedAt: timestamp("updated_at").notNull().defaultNow().onUpdateNow(),
 });
-
-export type AccountKind = "company" | "talent";
