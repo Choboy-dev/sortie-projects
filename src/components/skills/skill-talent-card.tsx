@@ -5,7 +5,7 @@ import type { ShowcaseTalent } from "@/lib/skills/types";
 
 export function SkillTalentCard({ person }: { person: ShowcaseTalent }) {
   return (
-    <article className="grid gap-6 border-b border-line py-10 first:pt-0 last:border-b-0 sm:grid-cols-[160px_minmax(0,1fr)] sm:gap-8">
+    <article className="grid gap-6 rounded-lg border border-line bg-panel p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_8px_24px_rgba(15,23,42,0.04)] ring-1 ring-black/[0.03] transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-signal/25 hover:shadow-[0_2px_4px_rgba(15,23,42,0.05),0_14px_28px_rgba(15,23,42,0.07)] sm:grid-cols-[160px_minmax(0,1fr)] sm:gap-8 sm:p-6">
       <div className="relative mx-auto aspect-[4/5] w-full max-w-[160px] overflow-hidden rounded-md bg-canvas ring-1 ring-black/[0.04] sm:mx-0">
         <Image
           src={person.photo}
@@ -50,7 +50,7 @@ export function SkillTalentCard({ person }: { person: ShowcaseTalent }) {
           {person.tags.map((tag) => (
             <li
               key={tag}
-              className="rounded border border-line bg-panel px-2 py-0.5 text-xs capitalize text-foreground"
+              className="rounded border border-line bg-canvas px-2 py-0.5 text-xs capitalize text-foreground"
             >
               {tag}
             </li>
@@ -68,7 +68,7 @@ export function SkillTalentCard({ person }: { person: ShowcaseTalent }) {
           </div>
           <a
             href="/hire/auth"
-            className="inline-flex rounded-md border border-line bg-panel px-4 py-2.5 text-sm font-semibold text-foreground transition hover:border-signal/40 hover:text-signal active:scale-[0.98]"
+            className="inline-flex rounded-md border border-line bg-canvas px-4 py-2.5 text-sm font-semibold text-foreground transition hover:border-signal/40 hover:text-signal active:scale-[0.98]"
           >
             Hire {person.name.split(" ")[0]}
           </a>

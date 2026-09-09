@@ -72,7 +72,7 @@ export function SkillTalentSection({
           </div>
         </div>
 
-        <div className="mt-10">
+        <div className="mt-10 space-y-5">
           <AnimatePresence mode="popLayout" initial={false}>
             {filtered.length > 0 ? (
               filtered.map((person) => (
