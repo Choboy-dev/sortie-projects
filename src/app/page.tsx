@@ -76,6 +76,26 @@ const talent: NetworkTalentPerson[] = [
     photo:
       "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=640&h=800&q=80",
   },
+  {
+    name: "Ngozi Adeyemi",
+    title: "Senior Product Manager",
+    expertise: "Verified Expert in Product",
+    previously: "Flutterwave",
+    discipline: "leadership",
+    skills: ["Roadmapping", "0-to-1", "Growth"],
+    photo:
+      "https://images.unsplash.com/photo-1589156280159-27698a70f29e?auto=format&fit=crop&w=640&h=800&q=80",
+  },
+  {
+    name: "Kwame Mensah",
+    title: "DevOps Engineer",
+    expertise: "Verified Expert in Engineering",
+    previously: "Andela",
+    discipline: "engineering",
+    skills: ["AWS", "Terraform", "Kubernetes"],
+    photo:
+      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=640&h=800&q=80",
+  },
 ];
 
 const trustLogos: Logo[] = [
