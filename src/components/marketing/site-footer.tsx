@@ -175,7 +175,7 @@ export function SiteFooter() {
                 wordmarkClassName="text-chalk"
               />
               <p className="text-sm text-chalk/70 sm:border-l sm:border-chalk/20 sm:pl-4">
-                Elite AI-vetted talent, on demand.
+                Africa’s Top 1% Talent, On Demand
               </p>
             </div>
 

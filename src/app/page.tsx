@@ -292,7 +292,7 @@ export default function Home() {
         <section className="border-b border-line bg-panel">
           <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:py-24">
             <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-              Expert skillsets, ready to deploy
+              Expert skillsets, ready to hire
             </h2>
             <div className="mt-8 flex flex-wrap gap-2">
               {skills.map((skill) => (
@@ -315,8 +315,9 @@ export default function Home() {
                 Top talent is in high demand.
               </h2>
               <p className="mt-4 text-lg text-chalk/70">
-                Whether you need to hire or join the network — Sortie is built
-                for serious companies and serious professionals.
+                No sourcing, no screening, no chasing candidates. Just show up
+                to interview candidates who made it through our vetting. Only 1%
+                do.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
