@@ -218,55 +218,61 @@ export default function Home() {
       <SiteHeader />
 
       <main id="main">
-        {/* Hero — Toptal pattern: value prop + talent strip */}
-        <section className="relative isolate overflow-hidden border-b border-line">
-          <div
-            className="pointer-events-none absolute inset-0 motion-reduce:hidden"
-            aria-hidden
-          >
-            <ShaderBackground className="absolute inset-0 h-full w-full" />
-          </div>
-          <div
-            className="pointer-events-none absolute inset-0 hidden bg-canvas motion-reduce:block"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute inset-0 bg-gradient-to-b from-panel/30 via-transparent to-panel/70"
-            aria-hidden
-          />
-          <div className="relative z-10 mx-auto grid w-full max-w-6xl gap-12 px-6 pb-16 pt-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16 lg:pb-20 lg:pt-20">
-            <div>
-              <h1 className="font-display text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-[3.25rem] lg:leading-[1.1]">
-                Talk to the top 1% of candidates only worth your time. Hire in 3
-                days.
-              </h1>
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted">
-                No sourcing, no screening, no chasing candidates. Just show up
-                to interview candidates who made it through our vetting. Only 1%
-                do.
-              </p>
-              <div className="mt-8 flex flex-wrap items-center gap-3">
-                <a
-                  className="rounded-md bg-signal px-6 py-3.5 text-sm font-semibold text-white hover:bg-signal-strong active:scale-[0.98]"
-                  href="mailto:hello@sortieprojects.com?subject=Hire%20Sortie%20talent"
-                >
-                  Hire Sortie talent
-                </a>
+        {/* Hero + trust logos = first viewport */}
+        <section className="relative flex min-h-[calc(100dvh-4.75rem)] flex-col overflow-hidden border-b border-line">
+          <div className="relative isolate flex min-h-0 flex-1 flex-col">
+            <div
+              className="pointer-events-none absolute inset-0 motion-reduce:hidden"
+              aria-hidden
+            >
+              <ShaderBackground className="absolute inset-0 h-full w-full" />
+            </div>
+            <div
+              className="pointer-events-none absolute inset-0 hidden bg-canvas motion-reduce:block"
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute inset-0 bg-gradient-to-b from-panel/30 via-transparent to-panel/70"
+              aria-hidden
+            />
+            <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 items-center px-6 py-10 lg:py-12">
+              <div className="grid w-full gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16">
+                <div>
+                  <h1 className="font-display text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-[3.25rem] lg:leading-[1.1]">
+                    Talk to the top 1% of candidates only worth your time. Hire
+                    in 3 days.
+                  </h1>
+                  <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted">
+                    No sourcing, no screening, no chasing candidates. Just show
+                    up to interview candidates who made it through our vetting.
+                    Only 1% do.
+                  </p>
+                  <div className="mt-8 flex flex-wrap items-center gap-3">
+                    <a
+                      className="rounded-md bg-signal px-6 py-3.5 text-sm font-semibold text-white hover:bg-signal-strong active:scale-[0.98]"
+                      href="mailto:hello@sortieprojects.com?subject=Hire%20Sortie%20talent"
+                    >
+                      Hire Sortie talent
+                    </a>
+                  </div>
+                </div>
+
+                <div className="grid gap-3 sm:grid-cols-2 sm:gap-3.5">
+                  {talent.slice(0, 4).map((person) => (
+                    <TalentPhotoCard key={person.name} person={person} />
+                  ))}
+                </div>
               </div>
             </div>
-
-            <div className="grid gap-3 sm:grid-cols-2 sm:gap-3.5">
-              {talent.slice(0, 4).map((person) => (
-                <TalentPhotoCard key={person.name} person={person} />
-              ))}
-            </div>
           </div>
-        </section>
 
-        {/* Trust logos */}
-        <section className="border-b border-line bg-canvas" aria-label="Trusted by leading companies">
-          <div className="mx-auto w-full max-w-7xl px-6 py-10 sm:py-12">
-            <LogoMarquee logos={trustLogos} />
+          <div
+            className="relative z-10 shrink-0 border-t border-line bg-canvas/90 backdrop-blur-sm"
+            aria-label="Trusted by leading companies"
+          >
+            <div className="mx-auto w-full max-w-7xl px-6 py-5 sm:py-6">
+              <LogoMarquee logos={trustLogos} className="py-0" />
+            </div>
           </div>
         </section>
 
