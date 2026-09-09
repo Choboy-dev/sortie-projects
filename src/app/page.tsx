@@ -1,9 +1,4 @@
 import {
-  Code,
-  ShieldCheck,
-  UsersThree,
-} from "@phosphor-icons/react/dist/ssr";
-import {
   TalentPhotoCard,
   type TalentPerson,
 } from "@/components/marketing/talent-photo-card";
@@ -11,6 +6,9 @@ import { BrandLogo } from "@/components/marketing/brand-logo";
 import { SiteHeader } from "@/components/marketing/site-header";
 import { TalentCategoriesSection } from "@/components/marketing/talent-categories-section";
 import { ValuePropsSection } from "@/components/marketing/value-props-section";
+import { HiringStepsSection } from "@/components/marketing/hiring-steps-section";
+import { VettingSection } from "@/components/marketing/vetting-section";
+import { TestimonialsSection } from "@/components/marketing/testimonials-section";
 import { LogoMarquee, type Logo } from "@/components/ui/logo-marquee";
 import { ShaderBackground } from "@/components/ui/mesh-portfolio";
 
@@ -106,43 +104,6 @@ const trustLogos: Logo[] = [
   },
 ];
 
-const hireSteps = [
-  {
-    step: "1",
-    title: "Tell us what you need",
-    body: "Share the role, stack, seniority, timezone, and engagement model. An industry specialist helps sharpen the brief.",
-  },
-  {
-    step: "2",
-    title: "Review matched talent",
-    body: "Browse ranked profiles from the Sortie network — people who already passed. Skip re-screening unless you want a culture interview.",
-  },
-  {
-    step: "3",
-    title: "Start with a trial",
-    body: "Engage the right person on a no-risk trial. Scale up, scale down, or rematch with no strings attached.",
-  },
-] as const;
-
-const vetting = [
-  {
-    title: "Language & professionalism",
-    body: "Communication screen focused on clarity, collaboration, and client-ready presence.",
-  },
-  {
-    title: "Skills assessments",
-    body: "Role-specific batteries with auto-scoring, percentiles, and job simulations.",
-  },
-  {
-    title: "AI interview + live coding",
-    body: "Conversational AI interviewer with a live coding engine during the session — talk, hear, write, and reason in real time.",
-  },
-  {
-    title: "Integrity & project delivery",
-    body: "Proctoring signals, anomaly scoring, and a real take-home project before network admission.",
-  },
-] as const;
-
 const skills = [
   "React",
   "Node.js",
@@ -230,140 +191,11 @@ export default function Home() {
 
         <ValuePropsSection />
 
-        {/* Hiring made easy — Toptal 3 steps */}
-        <section id="how-hiring-works" className="border-b border-line bg-panel">
-          <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:py-24">
-            <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-              Hiring made easy
-            </h2>
-            <p className="mt-4 max-w-2xl text-lg text-muted">
-              From role brief to working talent — without the traditional
-              recruiting grind.
-            </p>
-            <ol className="mt-12 grid gap-8 lg:grid-cols-3">
-              {hireSteps.map((step) => (
-                <li key={step.step} className="border-t border-line pt-6">
-                  <p className="font-mono text-sm font-medium text-signal">
-                    Step {step.step}
-                  </p>
-                  <h3 className="mt-3 font-display text-xl font-semibold">
-                    {step.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">
-                    {step.body}
-                  </p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
+        <HiringStepsSection />
 
-        {/* Vetting — Toptal screening + Sortie AI/TestGorilla depth */}
-        <section id="vetting" className="border-b border-line bg-ink text-chalk">
-          <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:py-24">
-            <div className="max-w-2xl">
-              <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-                Why less than 1% make the network
-              </h2>
-              <p className="mt-4 text-lg text-chalk/70">
-                Every applicant passes a multi-stage process designed to measure
-                subject-matter expertise, communication, integrity, and delivery
-                under real conditions.
-              </p>
-            </div>
-            <div className="mt-12 grid gap-8 sm:grid-cols-2">
-              {vetting.map((item, index) => (
-                <article
-                  key={item.title}
-                  className="border-t border-chalk/15 pt-6"
-                >
-                  <p className="font-mono text-xs font-medium tracking-wide text-mist">
-                    Stage {String(index + 1).padStart(2, "0")}
-                  </p>
-                  <h3 className="mt-3 font-display text-xl font-semibold">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-chalk/65">
-                    {item.body}
-                  </p>
-                </article>
-              ))}
-            </div>
-            <div className="mt-12 flex flex-wrap gap-3">
-              <a
-                className="rounded-md bg-signal-dark px-6 py-3.5 text-sm font-semibold text-ink hover:bg-mist active:scale-[0.98]"
-                href="mailto:hello@sortieprojects.com?subject=Apply%20to%20the%20Sortie%20network"
-              >
-                Apply to the network
-              </a>
-              <a
-                className="rounded-md border border-chalk/25 px-6 py-3.5 text-sm font-semibold text-chalk hover:bg-chalk/5 active:scale-[0.98]"
-                href="mailto:hello@sortieprojects.com?subject=Hire%20Sortie%20talent"
-              >
-                Hire talent
-              </a>
-            </div>
-          </div>
-        </section>
+        <VettingSection />
 
-        {/* Turing-style matching + trial */}
-        <section className="border-b border-line bg-panel">
-          <div className="mx-auto grid w-full max-w-6xl gap-12 px-6 py-20 sm:py-24 lg:grid-cols-2 lg:items-center">
-            <div>
-              <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-                AI-matched talent. Client-ready profiles.
-              </h2>
-              <p className="mt-4 text-lg leading-relaxed text-muted">
-                Like the best intelligent talent clouds, Sortie ranks the network
-                against your role — skills, seniority, timezone, compensation,
-                and availability — then surfaces a shortlist you can hire from
-                immediately.
-              </p>
-              <ul className="mt-8 space-y-4 text-sm text-muted">
-                <li className="flex gap-3">
-                  <Code className="mt-0.5 shrink-0 text-signal" size={18} aria-hidden />
-                  Deep technical profiles with scored assessments and coding
-                  playback
-                </li>
-                <li className="flex gap-3">
-                  <UsersThree className="mt-0.5 shrink-0 text-signal" size={18} aria-hidden />
-                  Optional company interviews — never required to access the
-                  network signal
-                </li>
-                <li className="flex gap-3">
-                  <ShieldCheck className="mt-0.5 shrink-0 text-signal" size={18} aria-hidden />
-                  Integrity badges and risk tiers from live proctoring
-                </li>
-              </ul>
-            </div>
-            <div className="rounded-xl border border-line bg-canvas p-8">
-              <p className="font-mono text-xs font-medium tracking-wide text-signal">
-                Engagement model
-              </p>
-              <h3 className="mt-3 font-display text-2xl font-semibold">
-                Flexible hiring, enterprise rigor
-              </h3>
-              <dl className="mt-8 space-y-5 text-sm">
-                <div className="flex justify-between gap-4 border-b border-line pb-4">
-                  <dt className="text-muted">Time to shortlist</dt>
-                  <dd className="font-semibold">Days, not weeks</dd>
-                </div>
-                <div className="flex justify-between gap-4 border-b border-line pb-4">
-                  <dt className="text-muted">Engagements</dt>
-                  <dd className="font-semibold">Hourly to full-time</dd>
-                </div>
-                <div className="flex justify-between gap-4 border-b border-line pb-4">
-                  <dt className="text-muted">Trial</dt>
-                  <dd className="font-semibold">Risk-free start</dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="text-muted">Rematch</dt>
-                  <dd className="font-semibold">Included if fit fails</dd>
-                </div>
-              </dl>
-            </div>
-          </div>
-        </section>
+        <TestimonialsSection />
 
         {/* Meet the network */}
         <section id="network" className="border-b border-line bg-canvas">

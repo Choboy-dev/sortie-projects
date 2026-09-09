@@ -4,78 +4,17 @@ import React from "react";
 import { LazyMotion, domAnimation, m, useReducedMotion } from "motion/react";
 import type { Icon } from "@phosphor-icons/react";
 import { cn } from "@/lib/utils";
-
-type ThemeColors = {
-  bg: string;
-  text: string;
-  border: string;
-};
-
-interface CardProps {
-  number: string;
-  title: string;
-  description: string;
-  icon: Icon;
-  className?: string;
-  rotate?: string;
-  colors: ThemeColors;
-}
-
-function Card({
-  number,
-  title,
-  description,
-  icon: Icon,
-  className,
-  rotate,
-  colors,
-}: CardProps) {
-  return (
-    <div
-      className={cn(
-        "relative w-full transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:z-30 hover:scale-[1.03] md:w-[280px]",
-        rotate,
-        className,
-      )}
-    >
-      <div className="rounded-[25px] border border-line bg-panel p-2 shadow-[0_10px_28px_rgba(15,23,42,0.08)]">
-        <Icon
-          className={cn("mx-auto mb-5 h-8 w-8", colors.text)}
-          weight="regular"
-          aria-hidden
-        />
-        <div
-          className={cn(
-            "relative flex h-full flex-col overflow-hidden rounded-[15px] border p-[15px]",
-            colors.bg,
-            colors.border,
-          )}
-        >
-          <span
-            className={cn(
-              "mb-5 font-display text-4xl font-semibold tracking-tight",
-              colors.text,
-            )}
-          >
-            {number}
-          </span>
-          <h3 className="mb-2.5 font-display text-xl font-semibold leading-snug tracking-tight text-foreground">
-            {title}
-          </h3>
-          <p className="text-sm leading-relaxed tracking-tight text-muted">
-            {description}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
+import {
+  FeatureCard,
+  sortieFeatureColors,
+  type FeatureCardColors,
+} from "@/components/marketing/feature-card";
 
 export interface Step {
   title: string;
   description: string;
   icon: Icon;
-  colors?: ThemeColors;
+  colors?: FeatureCardColors;
 }
 
 export interface StepPosition {
@@ -89,12 +28,6 @@ export interface HowItWorksProps {
   stepPositions?: StepPosition[];
   heading?: string;
 }
-
-const sortieGreen: ThemeColors = {
-  bg: "bg-[#eef6f2]",
-  text: "text-signal",
-  border: "border-signal/15",
-};
 
 const DEFAULT_CARD_POSITIONS: StepPosition[] = [
   { className: "md:absolute md:top-0 md:left-[15%]", rotate: "rotate-6" },
@@ -214,16 +147,22 @@ export default function HowItWorks({
             {data.map((step, index) => {
               const position = positions[index % positions.length];
               return (
-                <Card
+                <div
                   key={step.title}
-                  number={`0${index + 1}`}
-                  title={step.title}
-                  description={step.description}
-                  icon={step.icon}
-                  colors={step.colors || sortieGreen}
-                  rotate={position.rotate}
-                  className={position.className}
-                />
+                  className={cn(
+                    "relative z-10 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:z-30 hover:scale-[1.03] md:w-[280px]",
+                    position.rotate,
+                    position.className,
+                  )}
+                >
+                  <FeatureCard
+                    number={`0${index + 1}`}
+                    title={step.title}
+                    description={step.description}
+                    icon={step.icon}
+                    colors={step.colors || sortieFeatureColors}
+                  />
+                </div>
               );
             })}
           </div>
