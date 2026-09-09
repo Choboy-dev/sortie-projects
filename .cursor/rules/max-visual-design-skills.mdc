@@ -1,0 +1,35 @@
+---
+description: Always apply project design skills for max visual punch on any UI work
+alwaysApply: true
+---
+
+# Max visual design skills (mandatory)
+
+For ANY task that touches UI, UX, layout, styling, components, pages, marketing surfaces, motion, brand, or visual polish — even if the user does not name a skill — you MUST load and follow these project skills **before writing or changing code**:
+
+1. `.agents/skills/frontend-design/SKILL.md`
+2. `.agents/skills/design-taste-frontend/SKILL.md`
+3. `.agents/skills/ui-ux-pro-max/SKILL.md` (run its search/scripts when instructed)
+4. `.agents/skills/high-end-visual-design/SKILL.md`
+
+Do this on every relevant prompt without waiting for "use the design skills."
+
+## When it applies
+
+Applies to: new pages/features, restyles, refactors with visible UI, copy/layout on the site, component work, responsive fixes, animation, design reviews, and "make it look better."
+
+Does **not** apply to: pure backend/API, git/ops, dependency-only changes, or non-visual bugfixes with no UI impact.
+
+## Conflict resolution (max visual punch)
+
+- Prefer **high-end-visual-design** for premium aesthetics, type, spacing, motion, and layout ambition.
+- Always enforce **design-taste-frontend** anti-patterns (no generic AI look: Inter/Roboto defaults, purple gradients, beige+brass clichés, three equal feature cards, etc.).
+- Use **frontend-design** to lock one cohesive aesthetic direction before implementation.
+- Use **ui-ux-pro-max** for stacks, patterns, accessibility, and design-system search — never let it flatten the look into a generic template.
+- If skills disagree, choose the more distinctive, high-craft option that still stays usable and on-brand for Sortie Projects.
+
+## Non-negotiables
+
+- Never ship generic AI-looking UI.
+- Read the skill files (do not rely on memory); follow their workflows and checklists.
+- Match implementation complexity to the chosen aesthetic; do not under-design.
