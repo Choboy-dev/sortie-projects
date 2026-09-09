@@ -185,7 +185,7 @@ export function SiteHeader() {
                   </p>
                   <a
                     className="mt-2 inline-flex text-sm font-semibold text-signal hover:text-signal-strong"
-                    href="mailto:hello@sortieprojects.com?subject=Hire%20a%20Sortie%20team"
+                    href="/hire/auth"
                   >
                     Hire a Team →
                   </a>
