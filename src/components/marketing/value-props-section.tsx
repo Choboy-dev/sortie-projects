@@ -10,21 +10,21 @@ import HowItWorks, { type Step } from "@/components/ui/how-it-works";
 
 const features: Step[] = [
   {
-    title: "Hire in days, not months",
+    title: "Hire Quickly",
     description:
-      "Submit a role brief and receive matched, already-vetted profiles. Average time to shortlist is measured in days — not recruiting cycles.",
+      "Hire in under 48 hours. Scale up or down, no strings attached. We offer flexible engagements from hourly to full-time.",
     icon: MagnifyingGlass,
   },
   {
-    title: "Only the top talent",
+    title: "Only the top 1% talent",
     description:
-      "Every network member clears Sortie’s full gauntlet: skills assessments, AI interviews, live coding, integrity checks, and a take-home project.",
+      "Every network member is rigorously tested and vetted: skills assessments, 1-on-1 interviews, live coding, integrity checks, and a take-home project.",
     icon: ShieldCheck,
   },
   {
-    title: "AI matching that actually ranks",
+    title: "Talent matching that actually works",
     description:
-      "Our matching engine scores skills, seniority, timezone overlap, rate, availability, and integrity — then explains why each candidate fits.",
+      "Our matching engine scores skills, seniority, timezone overlap, rate, availability, and integrity, and then explains why each candidate fits.",
     icon: Brain,
   },
   {
