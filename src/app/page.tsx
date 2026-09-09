@@ -343,15 +343,9 @@ export default function Home() {
             <div className="flex flex-wrap gap-3">
               <a
                 className="rounded-md bg-signal-dark px-6 py-3.5 text-sm font-semibold text-ink hover:bg-mist active:scale-[0.98]"
-                href="mailto:hello@sortieprojects.com?subject=Hire%20Sortie%20talent"
+                href="mailto:hello@sortieprojects.com?subject=Start%20hiring%20with%20Sortie"
               >
-                Hire talent
-              </a>
-              <a
-                className="rounded-md border border-chalk/25 px-6 py-3.5 text-sm font-semibold text-chalk hover:bg-chalk/5 active:scale-[0.98]"
-                href="mailto:hello@sortieprojects.com?subject=Apply%20to%20the%20Sortie%20network"
-              >
-                Apply as talent
+                Start hiring
               </a>
             </div>
           </div>
