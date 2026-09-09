@@ -1,8 +1,5 @@
 import {
-  Brain,
   Code,
-  Handshake,
-  MagnifyingGlass,
   ShieldCheck,
   UsersThree,
 } from "@phosphor-icons/react/dist/ssr";
