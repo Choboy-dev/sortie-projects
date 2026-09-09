@@ -12,7 +12,7 @@ export default function HireAuthPage() {
     <AuthForm
       kind="company"
       title="Hire from the Sortie network"
-      subtitle="Sign in with email or Google to brief roles, review matched talent, and start trials."
+      subtitle="Sign in with email or Google to review matched talent and start hiring."
     />
   );
 }

@@ -12,7 +12,7 @@ export default function ApplyAuthPage() {
     <AuthForm
       kind="talent"
       title="Apply to the Sortie network"
-      subtitle="Sign in with email or Google to begin the admission gauntlet. Less than 1% make it in."
+      subtitle="Sign in with email or Google to get matched with top companies looking for your skills."
     />
   );
 }

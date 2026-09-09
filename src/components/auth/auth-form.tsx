@@ -84,7 +84,15 @@ export function AuthForm({ kind, title, subtitle }: AuthFormProps) {
   return (
     <div className="flex min-h-dvh flex-col bg-canvas text-foreground">
       <header className="border-b border-line bg-panel px-6 py-4">
-        <BrandLogo href="/" markClassName="h-7 w-auto" />
+        <div className="flex items-center justify-between gap-4">
+          <BrandLogo href="/" markClassName="h-7 w-auto" />
+          <a
+            href="/"
+            className="shrink-0 rounded-md px-3 py-2 text-sm font-medium text-muted transition hover:bg-canvas hover:text-foreground"
+          >
+            Back to home
+          </a>
+        </div>
       </header>
 
       <main
@@ -94,7 +102,7 @@ export function AuthForm({ kind, title, subtitle }: AuthFormProps) {
         <p className="text-sm font-medium text-signal">
           {kind === "company" ? "For companies" : "For talent"}
         </p>
-        <h1 className="mt-2 font-display text-3xl font-semibold tracking-tight">
+        <h1 className="mt-2 whitespace-nowrap font-display text-3xl font-semibold tracking-tight max-sm:text-[1.625rem]">
           {title}
         </h1>
         <p className="mt-3 text-base text-muted">{subtitle}</p>
