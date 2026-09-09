@@ -20,9 +20,9 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sortie Projects — Elite talent, AI-vetted",
+  title: "Sortie Projects — Hire the top 1% of freelance talent",
   description:
-    "Hire from a closed network of people who already passed Sortie’s AI interviews, live coding, and integrity checks — without re-running the hard part.",
+    "Exclusive network of AI-vetted developers, designers, and specialists. Hire for mission-critical work with no-risk trials — or apply to join the network.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

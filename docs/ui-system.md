@@ -6,9 +6,9 @@ Locked visual language for every surface. Agents must follow this file together 
 
 ## Design read
 
-**Reading this as:** dual-audience product (marketing + app) for hiring leaders and elite candidates, with a **selection-signal** language — precision, integrity, pass/fail as vernacular — leaning toward **custom Tailwind tokens + owned components** (not Fluent/Carbon/Material clones; not stock shadcn defaults).
+**Reading this as:** enterprise talent marketplace marketing (Toptal + Turing class) for hiring leaders and elite candidates — **serious, high-trust, conversion-oriented** — plus denser product/interview UI elsewhere. Custom Tailwind tokens + owned components; green signal accent retained as Sortie brand, not purple AI kits.
 
-**Subject matter:** AI interviews, live coding, scorecards, proctoring, shortlists, network admission. The memorable object is the **signal of having passed** — not another purple gradient hero.
+**Subject matter:** exclusive vetted network, AI interviews, live coding, matching, no-risk trials. Marketing must read like Toptal/Turing: value-prop hero, talent profiles, categories, hiring steps, vetting proof, network grid, dual CTAs (Hire / Apply).
 
 ---
 
@@ -16,16 +16,15 @@ Locked visual language for every surface. Agents must follow this file together 
 
 | Axis | Choice |
 |---|---|
-| **Vibe** | **Signal Chamber** — deep forest ink + single verdant signal accent; cool mist light surfaces for work UI. Not Ethereal Glass purple. Not cream/terracotta editorial. Not acid-green cyberpunk. |
-| **Marketing layout** | **Editorial Split** — brand-scale type + one dominant visual plane; left-weighted copy on large screens. |
+| **Marketing vibe** | **Enterprise marketplace** — light panels, sticky corporate nav, green CTA, talent profile tiles, category lists, proof and process. Modeled on Toptal/Turing homepages — not experimental dark art direction. |
 | **Product layout** | **Soft Structuralism** — airy white/mist panels, hairline structure, large type for titles, dense only where data demands it. |
-| **Interview room** | **Instrument panel** — dark, high-contrast, denser grid; editor + transcript + integrity as primary panes. |
+| **Interview room** | **Instrument panel** — dark ink ground; editor + transcript + integrity as primary panes. |
 
 ### Dials by surface
 
 | Surface | DESIGN_VARIANCE | MOTION_INTENSITY | VISUAL_DENSITY |
 |---|---|---|---|
-| Marketing | 7 | 5 | 3 |
+| Marketing | 5 | 3 | 5 |
 | Candidate / Company app | 5 | 4 | 5 |
 | Interview + live coding | 4 | 4 | 8 |
 | Admin / ops | 4 | 3 | 7 |
@@ -34,14 +33,14 @@ Locked visual language for every surface. Agents must follow this file together 
 
 ## Principles
 
-1. **Brand first on marketing.** First viewport: Sortie name as hero-level signal, one headline, one supporting sentence, one CTA group, one dominant visual plane. No stats strip, no three equal feature cards, no floating badges on the hero.
-2. **One bold move per view.** Spend visual ambition on type scale or the interview instrument — not on decoration everywhere.
-3. **Signal over chrome.** Accent color means *pass / action / live*. Neutrals carry structure. Red/amber reserved for integrity risk and errors.
-4. **Cards are rare.** Default: no cards. Use cards only when they contain a discrete interactive unit (role, candidature, listing). Prefer rules, spacing, and typography for hierarchy.
-5. **Sequence markers only for real sequences.** Numbered steps (01 / 02) only on the admission gauntlet and how-it-works flows — never as generic section decoration.
-6. **Dual density is intentional.** Marketing breathes (`py-24`–`py-40`). Interview room packs information without cluttered ornament.
-7. **Motion answers action.** One orchestrated marketing entrance is enough. Product motion: state changes, panels, focus. No section-by-section fade-up spam. Respect `prefers-reduced-motion`.
-8. **Copy is UI.** Active voice, sentence case, CTA names what happens. No filler. No em-dash label tropes (`WORD — fragment`). No middle-dot meta chains as decoration.
+1. **Marketing follows marketplace leaders.** Hero leads with the hiring value proposition (e.g. “Hire the top 1%…”), not a giant brand wordmark alone. Include talent samples, categories, how-it-works, vetting, network, dual Hire/Apply CTAs.
+2. **Trust before cleverness.** Sticky nav, clear CTAs (“Hire talent” / “Apply as talent”), no-risk trial language, measurable process — Toptal/Turing seriousness.
+3. **Signal over chrome in product.** Accent means *pass / action / live*. Neutrals carry structure. Red/amber for integrity risk and errors.
+4. **Marketing may use profile tiles and category blocks** (interactive units). App UI still avoids decorative card spam.
+5. **Sequence markers for real sequences** — hiring steps and vetting stages.
+6. **Dual density is intentional.** Marketing is information-rich but corporate. Interview room is denser.
+7. **Motion is restrained on marketing.** Prefer clarity over cinematic entrances. Respect `prefers-reduced-motion`.
+8. **Copy is UI.** Active voice, sentence case, CTA names what happens. No filler.
 
 ---
 
