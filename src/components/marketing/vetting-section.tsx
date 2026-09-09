@@ -11,30 +11,30 @@ import { FeatureCard } from "@/components/marketing/feature-card";
 const vettingStages = [
   {
     number: "01",
-    title: "Language & professionalism",
+    title: "Language and professionalism",
     description:
-      "Communication screen focused on clarity, collaboration, and client-ready presence.",
+      "We check that they speak clearly, work well with others, and can talk to clients.",
     icon: ChatTeardropText,
   },
   {
     number: "02",
-    title: "Skills assessments",
+    title: "Skills tests",
     description:
-      "Role-specific batteries with auto-scoring, percentiles, and job simulations.",
+      "They take tests for the exact job. We score the work and see how they handle real tasks.",
     icon: Exam,
   },
   {
     number: "03",
-    title: "AI interview + live coding",
+    title: "Live interview and coding",
     description:
-      "Conversational AI interviewer with a live coding engine during the session — talk, hear, write, and reason in real time.",
+      "They sit a live interview with coding. They talk through problems and write code in the session.",
     icon: Code,
   },
   {
     number: "04",
-    title: "Integrity & project delivery",
+    title: "Honesty and a real project",
     description:
-      "Proctoring signals, anomaly scoring, and a real take-home project before network admission.",
+      "We watch for cheating, then ask them to finish a real take-home project before they can join.",
     icon: ShieldCheck,
   },
 ] as const;
@@ -48,9 +48,9 @@ export function VettingSection() {
             Why less than 1% make the network
           </h2>
           <p className="mt-4 text-lg text-chalk/70">
-            Every applicant passes a multi-stage process designed to measure
-            subject-matter expertise, communication, integrity, and delivery
-            under real conditions.
+            Every applicant goes through several steps. We check their skills,
+            how they communicate, whether they are honest, and whether they can
+            finish real work.
           </p>
         </div>
 
@@ -69,9 +69,9 @@ export function VettingSection() {
         <div className="mt-16 sm:mt-20">
           <a
             className="inline-flex rounded-md bg-signal-dark px-6 py-3.5 text-sm font-semibold text-ink hover:bg-mist active:scale-[0.98]"
-            href="mailto:hello@sortieprojects.com?subject=Hire%20Sortie%20talent"
+            href="/hire/auth"
           >
-            Hire top talent
+            Hire talent
           </a>
         </div>
       </div>
