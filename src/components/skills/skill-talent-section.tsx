@@ -36,8 +36,8 @@ export function SkillTalentSection({
             Hire {skillLabel}
           </h2>
           <p className="mt-3 text-lg text-muted">
-            Showcase profiles from the Sortie network. Filter by collaboration
-            region, then start a hire brief to get matched.
+            Example profiles from the Sortie network. Filter by region, then
+            start a hire request to get matched.
           </p>
         </div>
 
@@ -89,7 +89,7 @@ export function SkillTalentSection({
               ))
             ) : (
               <p className="py-10 text-muted">
-                No showcase profiles in this region yet.{" "}
+                No profiles in this region yet.{" "}
                 <a
                   href="/hire/auth"
                   className="font-medium text-signal hover:text-signal-strong"
@@ -107,7 +107,7 @@ export function SkillTalentSection({
             href="/hire/auth"
             className="inline-flex text-sm font-semibold text-signal hover:text-signal-strong"
           >
-            Discover more {skillLabel.toLowerCase()} in the Sortie network →
+            Discover more {skillLabel.toLowerCase()}
           </a>
         </div>
       </div>

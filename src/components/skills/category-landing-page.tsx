@@ -13,9 +13,8 @@ export function CategoryLandingPage({ model }: { model: CategoryPageModel }) {
             Hire {model.categoryLabel}
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-muted">
-            Browse skills in {model.categoryLabel.toLowerCase()} and open a
-            dedicated hiring page for each role — Toptal-style structure, Sortie
-            vetting.
+            Browse {model.categoryLabel.toLowerCase()} skills and open a hiring
+            page for each role.
           </p>
 
           <div className="mt-8">

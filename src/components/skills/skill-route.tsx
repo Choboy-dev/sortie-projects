@@ -18,7 +18,7 @@ export function skillMetadata(
   skillSlug: string,
 ): Metadata {
   const model = getSkillPage(categoryId, skillSlug);
-  if (!model) return { title: "Skill not found — Sortie Projects" };
+  if (!model) return { title: "Skill not found | Sortie Projects" };
   return {
     title: model.meta.title,
     description: model.meta.description,
@@ -41,7 +41,7 @@ export function categoryMetadata(
   categoryId: SkillCategoryId,
 ): Metadata {
   const model = getCategoryPage(categoryId);
-  if (!model) return { title: "Category not found — Sortie Projects" };
+  if (!model) return { title: "Category not found | Sortie Projects" };
   return {
     title: model.meta.title,
     description: model.meta.description,

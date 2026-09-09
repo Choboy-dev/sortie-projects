@@ -14,58 +14,56 @@ export function expertiseForCategory(categoryId: string): string {
   return `Verified Expert in ${categoryDomain[categoryId] ?? "their field"}`;
 }
 
-/** Toptal-style short hero: roles on demand + why companies choose this skill from Sortie. */
 function heroSubtitle(skill: SkillRef): string {
-  const plural = skill.label;
-  const pluralLower = plural.toLowerCase();
+  const plural = skill.label.toLowerCase();
   const overrides: Record<string, string> = {
     "full-stack-engineers":
-      "Hire Full-stack developers, designers, architects, engineers, experts, and programmers on demand. Top companies and startups choose full-stack engineers from Sortie for end-to-end product development, seamless front-end and back-end integration, expertise in technologies like JavaScript, Node.js, React, Python, and more.",
+      "Hire full-stack developers, architects, engineers, and programmers when you need them. Companies use Sortie full-stack engineers for complete product work, front-end and back-end together, and tools like JavaScript, Node.js, React, and Python.",
     "front-end-engineers":
-      "Hire Front-end developers, UI engineers, JavaScript experts, and web programmers on demand. Top companies and startups choose front-end engineers from Sortie for responsive interfaces, modern frameworks like React and Vue, performance, accessibility, and more.",
+      "Hire front-end developers, UI engineers, and web programmers when you need them. Companies use Sortie front-end engineers for clear interfaces, React and Vue work, speed, and accessibility.",
     "software-engineers":
-      "Hire Software developers, engineers, architects, experts, and programmers on demand. Top companies and startups choose software engineers from Sortie for scalable systems, clean architecture, reliable delivery, and more.",
+      "Hire software developers, architects, engineers, and programmers when you need them. Companies use Sortie software engineers for solid systems, clean code, and steady delivery.",
     "react-js-developers":
-      "Hire React.js developers, engineers, experts, and programmers on demand. Top companies and startups choose React.js developers from Sortie for component-driven UIs, Next.js apps, state management, performance, and more.",
+      "Hire React.js developers and engineers when you need them. Companies use Sortie React.js developers for web apps, Next.js, state management, and fast interfaces.",
     "node-js-developers":
-      "Hire Node.js developers, engineers, experts, and programmers on demand. Top companies and startups choose Node.js developers from Sortie for APIs, real-time services, microservices, cloud-native backends, and more.",
+      "Hire Node.js developers and engineers when you need them. Companies use Sortie Node.js developers for APIs, services, and cloud backends.",
     "python-developers":
-      "Hire Python developers, engineers, experts, and programmers on demand. Top companies and startups choose Python developers from Sortie for web apps, data pipelines, automation, AI-assisted products, and more.",
+      "Hire Python developers and engineers when you need them. Companies use Sortie Python developers for web apps, data work, automation, and model-backed products.",
     "ux-designers":
-      "Hire UX designers, researchers, interaction experts, and product designers on demand. Top companies and startups choose UX designers from Sortie for user research, journey design, prototyping, usability, and more.",
+      "Hire UX designers, researchers, and product designers when you need them. Companies use Sortie UX designers for research, flows, prototypes, and easier products to use.",
     "ui-designers":
-      "Hire UI designers, visual designers, interface experts, and product designers on demand. Top companies and startups choose UI designers from Sortie for crisp interfaces, design systems, responsive layouts, and more.",
+      "Hire UI designers and visual designers when you need them. Companies use Sortie UI designers for clear screens, design systems, and layouts that work on every device.",
   };
 
   if (overrides[skill.slug]) return overrides[skill.slug];
 
   switch (skill.categoryId) {
     case "developers":
-      return `Hire ${plural}, architects, experts, and programmers on demand. Top companies and startups choose ${pluralLower} from Sortie for production delivery, modern stacks, scalable architecture, and more.`;
+      return `Hire ${plural} when you need them. Companies use Sortie ${plural} to build and ship software with the right tools for the job.`;
     case "designers":
-      return `Hire ${plural}, visual experts, and product designers on demand. Top companies and startups choose ${pluralLower} from Sortie for craft, usability, design systems, and more.`;
+      return `Hire ${plural} when you need them. Companies use Sortie ${plural} to make products clear, useful, and good to look at.`;
     case "marketing":
-      return `Hire ${plural}, strategists, and growth specialists on demand. Top companies and startups choose ${pluralLower} from Sortie for pipeline, brand, acquisition, retention, and more.`;
+      return `Hire ${plural} when you need them. Companies use Sortie ${plural} to find customers, grow pipeline, and keep people coming back.`;
     case "consultants":
-      return `Hire ${plural}, advisors, and specialists on demand. Top companies and startups choose ${pluralLower} from Sortie for strategy, operations, finance clarity, and more.`;
+      return `Hire ${plural} when you need them. Companies use Sortie ${plural} for clear plans, better operations, and sound money decisions.`;
     case "project-managers":
-      return `Hire ${plural}, delivery leads, and coordinators on demand. Top companies and startups choose ${pluralLower} from Sortie for on-time delivery, stakeholder clarity, agile execution, and more.`;
+      return `Hire ${plural} when you need them. Companies use Sortie ${plural} to keep work on time, keep people aligned, and finish projects.`;
     case "product-managers":
-      return `Hire ${plural}, owners, and product specialists on demand. Top companies and startups choose ${pluralLower} from Sortie for discovery, roadmaps, outcomes, and more.`;
+      return `Hire ${plural} when you need them. Companies use Sortie ${plural} to decide what to build, set the plan, and ship results.`;
     case "sales":
-      return `Hire ${plural}, closers, and revenue specialists on demand. Top companies and startups choose ${pluralLower} from Sortie for pipeline, discovery, closing, and more.`;
+      return `Hire ${plural} when you need them. Companies use Sortie ${plural} to open deals, close revenue, and grow accounts.`;
     default:
-      return `Hire ${plural} on demand. Top companies and startups choose ${pluralLower} from Sortie for vetted expertise, fast matching, and more.`;
+      return `Hire ${plural} when you need them. Companies use Sortie to find people who already passed our checks.`;
   }
 }
 
 export function buildHeroCopy(skill: SkillRef) {
-  const singular = skill.singular;
+  const singular = skill.singular.toLowerCase();
   return {
     eyebrow: `Hire ${skill.label}`,
     title: `Hire ${skill.label}`,
     subtitle: heroSubtitle(skill),
-    ctaLabel: `Hire a top ${singular.toLowerCase()}`,
+    ctaLabel: `Hire a ${singular}`,
   };
 }
 
@@ -74,28 +72,28 @@ export function buildCapabilities(skill: SkillRef): SkillCapability[] {
   const p = skill.label.toLowerCase();
   return [
     {
-      title: `End-to-end ${s} delivery`,
-      description: `Sortie ${p} own discovery through shipping — clarifying requirements, building the right solution, and handing off clean documentation.`,
+      title: `Full ${s} work`,
+      description: `Sortie ${p} help you clarify the need, do the work, and leave clear notes when they hand it off.`,
     },
     {
-      title: "Stack depth, not surface familiarity",
-      description: `Every ${s} on the network passed role-specific assessments. You get practitioners who have shipped similar work, not generalists guessing.`,
+      title: "Real skill, not buzzwords",
+      description: `Each ${s} passed role tests. You get someone who has done this kind of work before.`,
     },
     {
-      title: "Communication ready for clients",
-      description: `Language, professionalism, and collaboration screens sit ahead of technical rounds so your ${s} can join standups and stakeholder reviews from day one.`,
+      title: "Easy to work with",
+      description: `We check communication first. Your ${s} should be ready for meetings and updates from day one.`,
     },
     {
-      title: "Timezone-aware matching",
-      description: `Brief preferred overlap hours. We match ${p} who can collaborate with your team without burning the midnight oil on either side.`,
+      title: "Matched to your hours",
+      description: `Tell us when your team works. We match ${p} who can overlap with you.`,
     },
     {
-      title: "Trial before commitment",
-      description: `Start with a no-risk trial. Continue only if the fit is right — or rematch without friction.`,
+      title: "Try before you commit",
+      description: `Start with a short trial. Keep going only if it feels right, or ask us for someone else.`,
     },
     {
-      title: "Scale individuals or pods",
-      description: `Need one ${s} or a cross-functional pod? Sortie can staff the role or assemble a small team around the same brief.`,
+      title: "One person or a small team",
+      description: `Need one ${s}, or a few people together? We can help with either.`,
     },
   ];
 }
@@ -106,55 +104,61 @@ export function buildFaqs(skill: SkillRef): SkillFaq[] {
   return [
     {
       question: `How much does it cost to hire a ${singular}?`,
-      answer: `Rates depend on seniority, engagement model (hourly, part-time, or full-time), and timezone. After a short briefing call we share calibrated options from the Sortie network — no obligation to hire.`,
+      answer: `It depends on seniority, hours, and timezone. After a short call we share clear options. You do not have to hire anyone.`,
     },
     {
-      question: `How quickly can I hire ${plural}?`,
-      answer: `Most companies review matched profiles within days of sharing a clear brief. Complex or highly specialized roles may take longer; we set expectations up front.`,
+      question: `How fast can I hire ${plural}?`,
+      answer: `Most teams see matches within a few days. Harder roles can take longer. We will tell you what to expect up front.`,
     },
     {
       question: `How are Sortie ${plural} different?`,
-      answer: `Applicants pass language and professionalism screens, skills assessments, AI + live evaluation, and a real project delivery gate. Only a small fraction of applicants join the network.`,
+      answer: `People go through language checks, skill tests, live interviews, and a real project. Only a small share join the network.`,
     },
     {
-      question: `Can I hire a ${singular} hourly or for a short project?`,
-      answer: `Yes. Engagements flex across hourly, part-time, and full-time. Scale up or down as the work evolves.`,
+      question: `Can I hire a ${singular} by the hour?`,
+      answer: `Yes. You can hire hourly, part-time, or full-time, and change later if the work changes.`,
     },
     {
-      question: `What is the no-risk trial?`,
-      answer: `Every engagement starts with a trial window so you can confirm fit. If you are not satisfied, you are not billed for that trial — and we can rematch.`,
+      question: `What is the trial?`,
+      answer: `Every hire starts with a trial. If you are not happy, you do not pay for that trial, and we can find someone else.`,
     },
     {
       question: `Do you work with teams outside Africa?`,
-      answer: `Yes. Sortie is built around African talent competing globally. Companies hire across timezones with clear overlap expectations.`,
+      answer: `Yes. Sortie is built around African talent who work with teams around the world. We match on timezone overlap.`,
     },
   ];
 }
 
 export function buildHireSteps(skill: SkillRef) {
   const singular = skill.singular.toLowerCase();
+  const plural = skill.label.toLowerCase();
   return [
     {
       number: "01",
-      title: "Talk through the brief",
-      description: `Share the role, stack, seniority, timezone, and outcomes you need from a ${singular}. A specialist helps sharpen the ask.`,
+      title: "Talk to One of Our Client Advisors",
+      description: `Tell us what you need from a ${singular}: the role, skills, seniority, hours, and goals. An advisor helps you write a clear brief.`,
     },
     {
       number: "02",
       title: "Review matched talent",
-      description: `See ranked ${skill.label.toLowerCase()} from the network — people who already passed Sortie vetting. Skip re-screening unless you want a culture interview.`,
+      description: `We show you ${plural} who already passed Sortie checks. You can meet them if you want a culture fit chat.`,
     },
     {
       number: "03",
-      title: "Start with a trial",
-      description: `Engage the right person on a no-risk trial. Scale, rematch, or continue — you stay in control.`,
+      title: "The right fit, guaranteed",
+      description: `Work with your new ${singular} match for a trial period (pay only if satisfied), ensuring they're the right fit before starting the engagement.`,
     },
   ];
 }
 
 export function buildMeta(skill: SkillRef) {
   return {
-    title: `Hire ${skill.label} — Sortie Projects`,
-    description: `Hire ${skill.label.toLowerCase()} on demand from the Sortie network. Top companies and startups choose Sortie for vetted talent, fast matching, and trial-first hiring.`,
+    title: `Hire ${skill.label} | Sortie Projects`,
+    description: `Hire ${skill.label.toLowerCase()} from the Sortie network. Clear matching, vetted people, and a trial before you commit.`,
   };
+}
+
+export function buildAdvantageCopy(skill: SkillRef): string {
+  const singular = skill.singular.toLowerCase();
+  return `Within days, we'll introduce you to the right ${singular} expert for your project. Average time to match is under 24 hours.`;
 }

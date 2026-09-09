@@ -131,7 +131,7 @@ export function getCategoryPage(categoryId: string): CategoryPageModel | null {
     skills,
     meta: {
       title: `Hire ${category.label} — Sortie Projects`,
-      description: `Browse ${category.label.toLowerCase()} skills in the Sortie network and hire AI-vetted talent matched to your brief.`,
+      description: `Browse ${category.label.toLowerCase()} skills and hire people from the Sortie network.`,
     },
   };
 }

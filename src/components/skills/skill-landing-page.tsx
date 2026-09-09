@@ -9,6 +9,7 @@ import { SiteHeader } from "@/components/marketing/site-header";
 import { VettingSection } from "@/components/marketing/vetting-section";
 import { LogoMarquee, type Logo } from "@/components/ui/logo-marquee";
 import { SkillTalentSection } from "@/components/skills/skill-talent-section";
+import { buildAdvantageCopy } from "@/lib/skills/copy";
 import type { SkillPageModel } from "@/lib/skills/types";
 
 const trustLogos: Logo[] = [
@@ -103,7 +104,7 @@ export function SkillLandingPage({ model }: { model: SkillPageModel }) {
 
         <section className="border-b border-line bg-canvas py-8">
           <p className="mb-3 text-center text-base font-bold tracking-tight text-foreground sm:text-lg">
-            Trusted by teams shipping with Sortie talent
+            Trusted by teams who hire Sortie talent
           </p>
           <LogoMarquee logos={trustLogos} />
         </section>
@@ -114,12 +115,10 @@ export function SkillLandingPage({ model }: { model: SkillPageModel }) {
           <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 py-14 sm:flex-row sm:items-center sm:justify-between sm:py-16">
             <div className="max-w-xl">
               <h2 className="font-display text-2xl font-semibold tracking-tight sm:text-3xl">
-                The Sortie advantage
+                Why companies use Sortie
               </h2>
               <p className="mt-3 text-base text-chalk/75">
-                Most clients continue after a no-risk trial. Screening and matching
-                are built so you meet exceptional {skill.label.toLowerCase()} —
-                not a longlist of maybes.
+                {buildAdvantageCopy(skill)}
               </p>
             </div>
             <a
@@ -138,8 +137,7 @@ export function SkillLandingPage({ model }: { model: SkillPageModel }) {
                 How to hire {skill.label.toLowerCase()}
               </h2>
               <p className="mt-4 text-lg text-muted">
-                From brief to working talent — without the traditional recruiting
-                grind.
+                Tell us what you need. Meet matched people. Start with a trial.
               </p>
             </div>
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
@@ -161,7 +159,7 @@ export function SkillLandingPage({ model }: { model: SkillPageModel }) {
                 href="/hire/auth"
                 className="inline-flex rounded-md bg-signal px-6 py-3.5 text-sm font-semibold text-white hover:bg-signal-strong active:scale-[0.98]"
               >
-                Hire top {skill.label.toLowerCase()}
+                Hire {skill.label.toLowerCase()}
               </a>
             </div>
           </div>
@@ -173,11 +171,10 @@ export function SkillLandingPage({ model }: { model: SkillPageModel }) {
           <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:py-24">
             <div className="max-w-2xl">
               <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-                Capabilities of {skill.label.toLowerCase()}
+                What {skill.label.toLowerCase()} can do
               </h2>
               <p className="mt-4 text-lg text-muted">
-                What Sortie {skill.label.toLowerCase()} typically bring to a
-                brief — calibrated to the role, not a generic CV.
+                Common ways Sortie {skill.label.toLowerCase()} help on a project.
               </p>
             </div>
             <div className="mt-12 grid gap-8 sm:grid-cols-2">
@@ -199,10 +196,10 @@ export function SkillLandingPage({ model }: { model: SkillPageModel }) {
           <section className="border-b border-line bg-panel">
             <div className="mx-auto w-full max-w-6xl px-6 py-16 sm:py-20">
               <h2 className="font-display text-3xl font-semibold tracking-tight">
-                Find the right talent for every project
+                More roles you can hire
               </h2>
               <p className="mt-3 max-w-2xl text-lg text-muted">
-                Explore related roles in {skill.categoryLabel.toLowerCase()}.
+                Related roles in {skill.categoryLabel.toLowerCase()}.
               </p>
               <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {siblingSkills.map((item) => (
@@ -215,7 +212,7 @@ export function SkillLandingPage({ model }: { model: SkillPageModel }) {
                         {item.label}
                       </span>
                       <span className="mt-2 block text-sm text-muted">
-                        Hire {item.singular.toLowerCase()} talent →
+                        View {item.label.toLowerCase()}
                       </span>
                     </a>
                   </li>
@@ -252,8 +249,8 @@ export function SkillLandingPage({ model }: { model: SkillPageModel }) {
                 Ready to hire {skill.label.toLowerCase()}?
               </h2>
               <p className="mt-3 max-w-xl text-base text-chalk/75">
-                Share your brief. Get matched with Sortie network talent on a
-                no-risk trial.
+                Tell us what you need. We will match you with people from the
+                Sortie network, and you can start with a trial.
               </p>
             </div>
             <a
