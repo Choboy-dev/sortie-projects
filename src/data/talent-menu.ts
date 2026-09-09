@@ -1,6 +1,14 @@
 export type TalentCategory = {
-  id: string;
+  id:
+    | "developers"
+    | "designers"
+    | "marketing"
+    | "consultants"
+    | "project-managers"
+    | "product-managers"
+    | "sales";
   label: string;
+  /** Category landing path, e.g. /developers */
   href: string;
   skills: string[];
 };
@@ -9,7 +17,7 @@ export const talentCategories: TalentCategory[] = [
   {
     id: "developers",
     label: "Developers",
-    href: "#talent-categories",
+    href: "/developers",
     skills: [
       "Full-Stack Engineers",
       "Front-End Engineers",
@@ -43,7 +51,7 @@ export const talentCategories: TalentCategory[] = [
   {
     id: "designers",
     label: "Designers",
-    href: "#talent-categories",
+    href: "/designers",
     skills: [
       "UX Designers",
       "UI Designers",
@@ -68,7 +76,7 @@ export const talentCategories: TalentCategory[] = [
   {
     id: "marketing",
     label: "Marketing Experts",
-    href: "#talent-categories",
+    href: "/marketing",
     skills: [
       "Fractional CMOs",
       "SEO Experts",
@@ -93,7 +101,7 @@ export const talentCategories: TalentCategory[] = [
   {
     id: "consultants",
     label: "Management Consultants",
-    href: "#talent-categories",
+    href: "/consultants",
     skills: [
       "Finance Experts",
       "Startup Funding Consultants",
@@ -118,7 +126,7 @@ export const talentCategories: TalentCategory[] = [
   {
     id: "project-managers",
     label: "Project Managers",
-    href: "#talent-categories",
+    href: "/project-managers",
     skills: [
       "Web Project Managers",
       "Mobile Project Managers",
@@ -143,7 +151,7 @@ export const talentCategories: TalentCategory[] = [
   {
     id: "product-managers",
     label: "Product Managers",
-    href: "#talent-categories",
+    href: "/product-managers",
     skills: [
       "Digital Product Managers",
       "App Product Managers",
@@ -168,7 +176,7 @@ export const talentCategories: TalentCategory[] = [
   {
     id: "sales",
     label: "Sales Experts",
-    href: "#talent-categories",
+    href: "/sales",
     skills: [
       "Sales Consultants",
       "Sales Managers",

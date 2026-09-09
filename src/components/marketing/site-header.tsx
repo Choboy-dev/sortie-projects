@@ -8,6 +8,7 @@ import {
   talentCategories,
   type TalentCategory,
 } from "@/data/talent-menu";
+import { skillHref } from "@/lib/skills";
 
 function chunkSkills(skills: string[], columns = 3) {
   const size = Math.ceil(skills.length / columns);
@@ -206,7 +207,7 @@ export function SiteHeader() {
                       {column.map((skill) => (
                         <li key={skill}>
                           <a
-                            href={`mailto:hello@sortieprojects.com?subject=${encodeURIComponent(`Hire ${skill}`)}`}
+                            href={skillHref(active.id, skill)}
                             className="block rounded-sm py-1.5 text-[13px] leading-snug text-foreground/85 transition-colors hover:text-signal"
                             onClick={() => setOpen(false)}
                           >
@@ -220,7 +221,7 @@ export function SiteHeader() {
 
                 <div className="mt-6 flex justify-end border-t border-line pt-4">
                   <a
-                    href="#talent-categories"
+                    href={active.href}
                     className="text-sm font-semibold text-signal hover:text-signal-strong"
                     onClick={() => setOpen(false)}
                   >

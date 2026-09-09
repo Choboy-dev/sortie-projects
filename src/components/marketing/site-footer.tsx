@@ -6,44 +6,33 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import { BrandLogo } from "@/components/marketing/brand-logo";
 import { talentCategories } from "@/data/talent-menu";
+import { skillHref } from "@/lib/skills";
 
 const hireTalent = [
-  { label: "Hire Freelance Developers", href: "#talent-categories" },
-  { label: "Hire Freelance Designers", href: "#talent-categories" },
-  { label: "Hire Freelance Marketing Experts", href: "#talent-categories" },
-  { label: "Hire Freelance Product Managers", href: "#talent-categories" },
-  { label: "Hire Freelance Project Managers", href: "#talent-categories" },
-  { label: "Hire Freelance Data Scientists", href: "#talent-categories" },
-  {
-    label: "Hire Top Talent",
-    href: "mailto:hello@sortieprojects.com?subject=Hire%20Sortie%20talent",
-  },
+  { label: "Hire Freelance Developers", href: "/developers" },
+  { label: "Hire Freelance Designers", href: "/designers" },
+  { label: "Hire Freelance Marketing Experts", href: "/marketing" },
+  { label: "Hire Freelance Product Managers", href: "/product-managers" },
+  { label: "Hire Freelance Project Managers", href: "/project-managers" },
+  { label: "Hire Freelance Sales Experts", href: "/sales" },
+  { label: "Hire Top Talent", href: "/hire/auth" },
 ] as const;
 
 const aboutLinks = [
-  { label: "How Hiring Works", href: "#how-hiring-works" },
-  { label: "Vetting Process", href: "#vetting" },
-  { label: "Meet the Network", href: "#network" },
+  { label: "How Hiring Works", href: "/#how-hiring-works" },
+  { label: "Vetting Process", href: "/#vetting" },
+  { label: "Meet the Network", href: "/#network" },
   {
     label: "Contact",
     href: "mailto:hello@sortieprojects.com?subject=Contact%20Sortie",
   },
-  {
-    label: "Apply as Talent",
-    href: "mailto:hello@sortieprojects.com?subject=Apply%20to%20the%20Sortie%20network",
-  },
+  { label: "Apply as Talent", href: "/apply/auth" },
 ] as const;
 
 const moreLinks = [
-  {
-    label: "Hire Sortie Talent",
-    href: "mailto:hello@sortieprojects.com?subject=Hire%20Sortie%20talent",
-  },
-  {
-    label: "Join the Network",
-    href: "mailto:hello@sortieprojects.com?subject=Apply%20to%20the%20Sortie%20network",
-  },
-  { label: "Why Sortie", href: "#vetting" },
+  { label: "Hire Sortie Talent", href: "/hire/auth" },
+  { label: "Join the Network", href: "/apply/auth" },
+  { label: "Why Sortie", href: "/#vetting" },
 ] as const;
 
 const socialLinks = [
@@ -72,8 +61,13 @@ const legalLinks = [
 ] as const;
 
 function featuredSkillColumns() {
-  const skills = talentCategories.flatMap((category) => category.skills);
-  const picked = skills.slice(0, 30);
+  const entries = talentCategories.flatMap((category) =>
+    category.skills.map((skill) => ({
+      label: skill,
+      href: skillHref(category.id, skill),
+    })),
+  );
+  const picked = entries.slice(0, 30);
   const size = Math.ceil(picked.length / 3);
   return [
     picked.slice(0, size),
@@ -128,8 +122,8 @@ export function SiteFooter() {
               {skillColumns.map((column, index) => (
                 <ul key={index} className="space-y-1.5">
                   {column.map((skill) => (
-                    <li key={skill}>
-                      <FooterLink href="#talent-categories">{skill}</FooterLink>
+                    <li key={skill.href}>
+                      <FooterLink href={skill.href}>{skill.label}</FooterLink>
                     </li>
                   ))}
                 </ul>
