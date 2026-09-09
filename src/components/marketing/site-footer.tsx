@@ -66,9 +66,9 @@ const socialLinks = [
 ] as const;
 
 const legalLinks = [
-  { label: "Privacy Policy", href: "mailto:hello@sortieprojects.com?subject=Privacy%20Policy" },
-  { label: "Website Terms", href: "mailto:hello@sortieprojects.com?subject=Website%20Terms" },
-  { label: "Accessibility", href: "mailto:hello@sortieprojects.com?subject=Accessibility" },
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Website Terms", href: "/terms" },
+  { label: "Accessibility", href: "/accessibility" },
 ] as const;
 
 function featuredSkillColumns() {
