@@ -30,21 +30,11 @@ export default async function TalentOnboardingPage() {
       email={session.user.email}
       signOutAction={signOut}
     >
-      <div className="max-w-2xl">
-        <p className="text-sm font-medium text-signal">Admission setup</p>
-        <h1 className="mt-2 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-          Tell us who you are
-        </h1>
-        <p className="mt-3 text-base text-muted sm:text-lg">
-          A short profile so we can place you when assessments open. No scores
-          yet.
-        </p>
-        <div className="mt-10">
-          <TalentOnboardingForm
-            defaultName={session.user.name || ""}
-            action={submitTalentOnboarding}
-          />
-        </div>
+      <div className="flex min-h-[70vh] items-center py-4">
+        <TalentOnboardingForm
+          defaultName={session.user.name || ""}
+          action={submitTalentOnboarding}
+        />
       </div>
     </WorkspaceShell>
   );
