@@ -263,7 +263,7 @@ export default function Home() {
 
         {/* Meet the network */}
         <section id="network" className="border-b border-line bg-canvas">
-          <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:py-24">
+          <div className="mx-auto w-full max-w-7xl px-6 py-20 sm:py-24">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -280,7 +280,7 @@ export default function Home() {
                 Discover more talent
               </a>
             </div>
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-5">
               {talent.map((person) => (
                 <NetworkTalentCard key={person.name} person={person} />
               ))}

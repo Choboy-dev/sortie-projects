@@ -27,59 +27,59 @@ export function NetworkTalentCard({ person }: { person: NetworkTalentPerson }) {
     disciplineIcon[person.discipline as keyof typeof disciplineIcon] ?? Code;
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-md bg-panel shadow-[0_1px_2px_rgba(15,23,42,0.04),0_8px_24px_rgba(15,23,42,0.06)] ring-1 ring-black/[0.04] transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:shadow-[0_2px_4px_rgba(15,23,42,0.05),0_16px_32px_rgba(15,23,42,0.1)]">
-      <div className="relative aspect-[4/3] w-full shrink-0 bg-canvas">
+    <article className="group flex h-full flex-col overflow-hidden rounded-md bg-panel shadow-[0_1px_2px_rgba(15,23,42,0.04),0_6px_18px_rgba(15,23,42,0.05)] ring-1 ring-black/[0.04] transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:shadow-[0_2px_4px_rgba(15,23,42,0.05),0_12px_24px_rgba(15,23,42,0.08)]">
+      <div className="relative aspect-[5/4] w-full shrink-0 bg-canvas">
         <Image
           src={person.photo}
           alt={person.name}
           fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           className="object-cover object-top"
         />
       </div>
 
-      <div className="flex flex-1 flex-col px-5 pb-5 pt-4">
-        <h3 className="font-display text-lg font-semibold tracking-tight text-signal">
+      <div className="flex flex-1 flex-col px-3.5 pb-3.5 pt-3">
+        <h3 className="font-display text-[15px] font-semibold tracking-tight text-signal">
           {person.name}
         </h3>
 
-        <p className="mt-2 flex items-center gap-1.5 text-sm font-medium text-signal">
+        <p className="mt-1.5 flex items-center gap-1 text-[12px] font-medium leading-snug text-signal">
           <CheckCircle
-            className="h-4 w-4 shrink-0"
+            className="h-3.5 w-3.5 shrink-0"
             weight="fill"
             aria-hidden
           />
           <span>{person.expertise}</span>
         </p>
 
-        <p className="mt-2.5 flex items-start gap-1.5 text-sm leading-snug text-muted">
+        <p className="mt-1.5 flex items-start gap-1 text-[12px] leading-snug text-muted">
           <Icon
-            className="mt-0.5 h-4 w-4 shrink-0 text-muted"
+            className="mt-0.5 h-3.5 w-3.5 shrink-0 text-muted"
             weight="regular"
             aria-hidden
           />
           <span>{person.title}</span>
         </p>
 
-        <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted/80">
+        <p className="mt-3 text-[9px] font-semibold uppercase tracking-[0.14em] text-muted/80">
           Expertise
         </p>
-        <ul className="mt-2 flex flex-wrap gap-1.5">
+        <ul className="mt-1.5 flex flex-wrap gap-1">
           {person.skills.map((skill) => (
             <li
               key={skill}
-              className="rounded border border-line bg-panel px-2 py-1 text-xs text-foreground"
+              className="rounded border border-line bg-panel px-1.5 py-0.5 text-[11px] text-foreground"
             >
               {skill}
             </li>
           ))}
         </ul>
 
-        <div className="mt-auto pt-5">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted/80">
+        <div className="mt-auto pt-3">
+          <p className="text-[9px] font-semibold uppercase tracking-[0.14em] text-muted/80">
             Previously at
           </p>
-          <div className="mt-2 flex min-h-[24px] items-center">
+          <div className="mt-1.5 flex min-h-[20px] scale-90 origin-left items-center">
             <CompanyLogo company={person.previously} />
           </div>
         </div>
