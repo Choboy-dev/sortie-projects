@@ -1,53 +1,83 @@
-import { headers } from "next/headers";
+import Link from "next/link";
 import { redirect } from "next/navigation";
-import { auth } from "@/lib/auth";
-import { BrandLogo } from "@/components/marketing/brand-logo";
+import {
+  getCompanyWorkspace,
+  requireWorkspaceSession,
+  signOutWorkspace,
+} from "@/lib/workspace";
+import { WorkspaceShell } from "@/components/workspace/workspace-shell";
 
 export default async function HireHomePage() {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
+  const session = await requireWorkspaceSession("company");
+  const workspace = await getCompanyWorkspace(
+    session.user.id,
+    session.user.email,
+  );
 
-  if (!session) {
-    redirect("/hire/auth");
+  if (!workspace.onboardingComplete || !workspace.dashboard) {
+    redirect("/hire/onboarding");
   }
 
-  if (session.user.accountKind && session.user.accountKind !== "company") {
-    redirect("/apply");
+  const { dashboard } = workspace;
+
+  async function signOut() {
+    "use server";
+    await signOutWorkspace("company");
   }
 
   return (
-    <div className="flex min-h-dvh flex-col bg-canvas text-foreground">
-      <header className="flex items-center justify-between border-b border-line bg-panel px-6 py-4">
-        <BrandLogo href="/" markClassName="h-7 w-auto" />
-        <form
-          action={async () => {
-            "use server";
-            await auth.api.signOut({ headers: await headers() });
-            redirect("/hire/auth");
-          }}
-        >
-          <button
-            type="submit"
-            className="rounded-md border border-line px-3 py-2 text-sm font-medium hover:bg-canvas"
-          >
-            Sign out
-          </button>
-        </form>
-      </header>
-      <main id="main" className="mx-auto w-full max-w-3xl px-6 py-16">
-        <p className="text-sm font-medium text-signal">Company workspace</p>
-        <h1 className="mt-2 font-display text-4xl font-semibold tracking-tight">
-          Welcome{session.user.name ? `, ${session.user.name}` : ""}
+    <WorkspaceShell
+      kindLabel="Company workspace"
+      email={session.user.email}
+      signOutAction={signOut}
+    >
+      <div className="max-w-3xl">
+        <p className="text-sm font-medium text-signal">Hiring desk</p>
+        <h1 className="mt-2 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+          {dashboard.title}
         </h1>
-        <p className="mt-4 text-lg text-muted">
-          Your hiring dashboard is next. Auth is live — role briefs, matching,
-          and trials will land here.
+        <p className="mt-3 text-base text-muted">
+          Hiring focus: {dashboard.hiringFocus}
         </p>
-        <p className="mt-6 text-sm text-muted">
-          Signed in as {session.user.email}
-        </p>
-      </main>
-    </div>
+      </div>
+
+      <div className="mt-10 grid gap-8 border-t border-line pt-10 lg:grid-cols-[1.1fr_0.9fr]">
+        <section>
+          <h2 className="font-display text-lg font-semibold tracking-tight">
+            Next step
+          </h2>
+          <p className="mt-4 max-w-md text-base text-muted">
+            {dashboard.nextAction}
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <span className="inline-flex cursor-not-allowed rounded-md border border-line px-4 py-2.5 text-sm font-medium text-muted">
+              Post a full role (soon)
+            </span>
+            <Link
+              href={dashboard.browseHref}
+              className="inline-flex rounded-md bg-signal px-4 py-2.5 text-sm font-semibold text-white hover:bg-signal-strong"
+            >
+              Browse talent
+            </Link>
+          </div>
+        </section>
+
+        <section>
+          <h2 className="font-display text-lg font-semibold tracking-tight">
+            Pipeline
+          </h2>
+          <p className="mt-2 text-sm text-muted">
+            Matched talent and trials will show here. Nothing queued yet.
+          </p>
+        </section>
+      </div>
+
+      <p className="mt-12 text-sm text-muted">
+        Need the marketing site?{" "}
+        <Link href="/" className="font-medium text-foreground underline-offset-4 hover:underline">
+          Back to Sortie home
+        </Link>
+      </p>
+    </WorkspaceShell>
   );
 }

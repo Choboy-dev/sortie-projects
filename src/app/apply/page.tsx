@@ -1,53 +1,82 @@
-import { headers } from "next/headers";
+import Link from "next/link";
 import { redirect } from "next/navigation";
-import { auth } from "@/lib/auth";
-import { BrandLogo } from "@/components/marketing/brand-logo";
+import {
+  getTalentWorkspace,
+  requireWorkspaceSession,
+  signOutWorkspace,
+} from "@/lib/workspace";
+import { WorkspaceShell } from "@/components/workspace/workspace-shell";
 
 export default async function ApplyHomePage() {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
+  const session = await requireWorkspaceSession("talent");
+  const workspace = await getTalentWorkspace(
+    session.user.id,
+    session.user.email,
+  );
 
-  if (!session) {
-    redirect("/apply/auth");
+  if (!workspace.onboardingComplete || !workspace.dashboard) {
+    redirect("/apply/onboarding");
   }
 
-  if (session.user.accountKind && session.user.accountKind !== "talent") {
-    redirect("/hire");
+  const { dashboard } = workspace;
+
+  async function signOut() {
+    "use server";
+    await signOutWorkspace("talent");
   }
 
   return (
-    <div className="flex min-h-dvh flex-col bg-canvas text-foreground">
-      <header className="flex items-center justify-between border-b border-line bg-panel px-6 py-4">
-        <BrandLogo href="/" markClassName="h-7 w-auto" />
-        <form
-          action={async () => {
-            "use server";
-            await auth.api.signOut({ headers: await headers() });
-            redirect("/apply/auth");
-          }}
-        >
-          <button
-            type="submit"
-            className="rounded-md border border-line px-3 py-2 text-sm font-medium hover:bg-canvas"
-          >
-            Sign out
-          </button>
-        </form>
-      </header>
-      <main id="main" className="mx-auto w-full max-w-3xl px-6 py-16">
-        <p className="text-sm font-medium text-signal">Talent workspace</p>
-        <h1 className="mt-2 font-display text-4xl font-semibold tracking-tight">
-          Welcome{session.user.name ? `, ${session.user.name}` : ""}
+    <WorkspaceShell
+      kindLabel="Talent workspace"
+      email={session.user.email}
+      signOutAction={signOut}
+    >
+      <div className="max-w-3xl">
+        <p className="text-sm font-medium text-signal">At a glance</p>
+        <h1 className="mt-2 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+          {dashboard.title}
         </h1>
-        <p className="mt-4 text-lg text-muted">
-          Your admission dashboard is next. Auth is live — assessments,
-          interviews, and network status will land here.
-        </p>
-        <p className="mt-6 text-sm text-muted">
-          Signed in as {session.user.email}
-        </p>
-      </main>
-    </div>
+        <p className="mt-3 text-base text-muted">{dashboard.profileSummary}</p>
+      </div>
+
+      <div className="mt-10 grid gap-8 border-t border-line pt-10 lg:grid-cols-[1.1fr_0.9fr]">
+        <section>
+          <h2 className="font-display text-lg font-semibold tracking-tight">
+            Admission
+          </h2>
+          <p className="mt-3 text-sm text-muted">Status</p>
+          <p className="mt-1 text-2xl font-semibold tracking-tight text-foreground">
+            {dashboard.admissionStatus}
+          </p>
+          <p className="mt-4 max-w-md text-base text-muted">
+            {dashboard.nextAction}
+          </p>
+        </section>
+
+        <section className="space-y-6">
+          <div>
+            <h2 className="font-display text-lg font-semibold tracking-tight">
+              Intros
+            </h2>
+            <p className="mt-2 text-sm text-muted">{dashboard.emptyIntros}</p>
+          </div>
+          <div>
+            <h2 className="font-display text-lg font-semibold tracking-tight">
+              Engagements
+            </h2>
+            <p className="mt-2 text-sm text-muted">
+              {dashboard.emptyEngagements}
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <p className="mt-12 text-sm text-muted">
+        Need to change your path?{" "}
+        <Link href="/" className="font-medium text-foreground underline-offset-4 hover:underline">
+          Back to Sortie home
+        </Link>
+      </p>
+    </WorkspaceShell>
   );
 }

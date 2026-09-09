@@ -18,8 +18,12 @@ import type {
 
 const TALENT_PER_PAGE = 8;
 
-function isCategoryId(value: string): value is SkillCategoryId {
+export function isSkillCategoryId(value: string): value is SkillCategoryId {
   return talentCategories.some((c) => c.id === value);
+}
+
+function isCategoryId(value: string): value is SkillCategoryId {
+  return isSkillCategoryId(value);
 }
 
 export function skillHref(categoryId: string, skillLabel: string): string {

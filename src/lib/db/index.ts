@@ -1,6 +1,6 @@
 import { createPool } from "mysql2/promise";
 import { drizzle } from "drizzle-orm/mysql2";
-import * as schema from "@/lib/db/schema/auth";
+import * as schema from "@/lib/db/schema";
 
 const pool = createPool(process.env.DATABASE_URL!);
 
