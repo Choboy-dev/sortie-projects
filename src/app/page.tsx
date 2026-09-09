@@ -6,6 +6,7 @@ import {
   ShieldCheck,
   UsersThree,
 } from "@phosphor-icons/react/dist/ssr";
+import { ShaderBackground } from "@/components/ui/mesh-portfolio";
 
 const talent = [
   {
@@ -200,8 +201,22 @@ export default function Home() {
 
       <main id="main">
         {/* Hero — Toptal pattern: value prop + talent strip */}
-        <section className="border-b border-line bg-panel">
-          <div className="mx-auto grid w-full max-w-6xl gap-12 px-6 pb-16 pt-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16 lg:pb-20 lg:pt-20">
+        <section className="relative isolate overflow-hidden border-b border-line">
+          <div
+            className="pointer-events-none absolute inset-0 motion-reduce:hidden"
+            aria-hidden
+          >
+            <ShaderBackground className="absolute inset-0 h-full w-full" />
+          </div>
+          <div
+            className="pointer-events-none absolute inset-0 hidden bg-canvas motion-reduce:block"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-0 bg-gradient-to-b from-panel/30 via-transparent to-panel/70"
+            aria-hidden
+          />
+          <div className="relative z-10 mx-auto grid w-full max-w-6xl gap-12 px-6 pb-16 pt-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16 lg:pb-20 lg:pt-20">
             <div>
               <h1 className="font-display text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-[3.25rem] lg:leading-[1.1]">
                 Hire the top 1% of freelance talent
