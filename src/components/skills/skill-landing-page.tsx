@@ -97,13 +97,12 @@ export function SkillLandingPage({ model }: { model: SkillPageModel }) {
               >
                 {hero.ctaLabel}
               </a>
-              <p className="max-w-sm text-sm text-muted">{hero.trustLine}</p>
             </div>
           </div>
         </section>
 
         <section className="border-b border-line bg-canvas py-8">
-          <p className="mb-2 text-center text-[10px] font-semibold uppercase tracking-[0.14em] text-muted">
+          <p className="mb-3 text-center text-base font-bold tracking-tight text-foreground sm:text-lg">
             Trusted by teams shipping with Sortie talent
           </p>
           <LogoMarquee logos={trustLogos} />

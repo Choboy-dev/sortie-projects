@@ -14,16 +14,58 @@ export function expertiseForCategory(categoryId: string): string {
   return `Verified Expert in ${categoryDomain[categoryId] ?? "their field"}`;
 }
 
-export function buildHeroCopy(skill: SkillRef) {
+/** Toptal-style short hero: roles on demand + why companies choose this skill from Sortie. */
+function heroSubtitle(skill: SkillRef): string {
   const plural = skill.label;
+  const pluralLower = plural.toLowerCase();
+  const overrides: Record<string, string> = {
+    "full-stack-engineers":
+      "Hire Full-stack developers, designers, architects, engineers, experts, and programmers on demand. Top companies and startups choose full-stack engineers from Sortie for end-to-end product development, seamless front-end and back-end integration, expertise in technologies like JavaScript, Node.js, React, Python, and more.",
+    "front-end-engineers":
+      "Hire Front-end developers, UI engineers, JavaScript experts, and web programmers on demand. Top companies and startups choose front-end engineers from Sortie for responsive interfaces, modern frameworks like React and Vue, performance, accessibility, and more.",
+    "software-engineers":
+      "Hire Software developers, engineers, architects, experts, and programmers on demand. Top companies and startups choose software engineers from Sortie for scalable systems, clean architecture, reliable delivery, and more.",
+    "react-js-developers":
+      "Hire React.js developers, engineers, experts, and programmers on demand. Top companies and startups choose React.js developers from Sortie for component-driven UIs, Next.js apps, state management, performance, and more.",
+    "node-js-developers":
+      "Hire Node.js developers, engineers, experts, and programmers on demand. Top companies and startups choose Node.js developers from Sortie for APIs, real-time services, microservices, cloud-native backends, and more.",
+    "python-developers":
+      "Hire Python developers, engineers, experts, and programmers on demand. Top companies and startups choose Python developers from Sortie for web apps, data pipelines, automation, AI-assisted products, and more.",
+    "ux-designers":
+      "Hire UX designers, researchers, interaction experts, and product designers on demand. Top companies and startups choose UX designers from Sortie for user research, journey design, prototyping, usability, and more.",
+    "ui-designers":
+      "Hire UI designers, visual designers, interface experts, and product designers on demand. Top companies and startups choose UI designers from Sortie for crisp interfaces, design systems, responsive layouts, and more.",
+  };
+
+  if (overrides[skill.slug]) return overrides[skill.slug];
+
+  switch (skill.categoryId) {
+    case "developers":
+      return `Hire ${plural}, architects, experts, and programmers on demand. Top companies and startups choose ${pluralLower} from Sortie for production delivery, modern stacks, scalable architecture, and more.`;
+    case "designers":
+      return `Hire ${plural}, visual experts, and product designers on demand. Top companies and startups choose ${pluralLower} from Sortie for craft, usability, design systems, and more.`;
+    case "marketing":
+      return `Hire ${plural}, strategists, and growth specialists on demand. Top companies and startups choose ${pluralLower} from Sortie for pipeline, brand, acquisition, retention, and more.`;
+    case "consultants":
+      return `Hire ${plural}, advisors, and specialists on demand. Top companies and startups choose ${pluralLower} from Sortie for strategy, operations, finance clarity, and more.`;
+    case "project-managers":
+      return `Hire ${plural}, delivery leads, and coordinators on demand. Top companies and startups choose ${pluralLower} from Sortie for on-time delivery, stakeholder clarity, agile execution, and more.`;
+    case "product-managers":
+      return `Hire ${plural}, owners, and product specialists on demand. Top companies and startups choose ${pluralLower} from Sortie for discovery, roadmaps, outcomes, and more.`;
+    case "sales":
+      return `Hire ${plural}, closers, and revenue specialists on demand. Top companies and startups choose ${pluralLower} from Sortie for pipeline, discovery, closing, and more.`;
+    default:
+      return `Hire ${plural} on demand. Top companies and startups choose ${pluralLower} from Sortie for vetted expertise, fast matching, and more.`;
+  }
+}
+
+export function buildHeroCopy(skill: SkillRef) {
   const singular = skill.singular;
   return {
-    eyebrow: `Hire ${plural}`,
-    title: `Hire ${plural}`,
-    subtitle: `Hire ${plural.toLowerCase()} from the Sortie network — AI-vetted specialists matched to your brief, timezone, and stack. Top companies across Africa and beyond engage ${singular.toLowerCase()} talent for outcomes, not résumés.`,
+    eyebrow: `Hire ${skill.label}`,
+    title: `Hire ${skill.label}`,
+    subtitle: heroSubtitle(skill),
     ctaLabel: `Hire a top ${singular.toLowerCase()}`,
-    trustLine:
-      "Clients rate Sortie talent highly after trial engagements. Pay only if you are satisfied.",
   };
 }
 
@@ -113,6 +155,6 @@ export function buildHireSteps(skill: SkillRef) {
 export function buildMeta(skill: SkillRef) {
   return {
     title: `Hire ${skill.label} — Sortie Projects`,
-    description: `Hire elite ${skill.label.toLowerCase()} from the Sortie network. AI-vetted talent, trial-first hiring, matched to your brief and timezone.`,
+    description: `Hire ${skill.label.toLowerCase()} on demand from the Sortie network. Top companies and startups choose Sortie for vetted talent, fast matching, and trial-first hiring.`,
   };
 }

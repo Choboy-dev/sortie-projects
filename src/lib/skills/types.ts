@@ -53,7 +53,6 @@ export type SkillPageModel = {
     title: string;
     subtitle: string;
     ctaLabel: string;
-    trustLine: string;
   };
   capabilities: SkillCapability[];
   faqs: SkillFaq[];
