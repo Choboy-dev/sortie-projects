@@ -83,10 +83,14 @@ export function TalentCategoriesSection() {
           <ServiceCarousel services={talentServices} />
         </div>
 
-        <p className="mt-10 text-sm font-medium text-foreground">
-          Plus thousands more skills — whatever specialization your business
-          requires.
-        </p>
+        <div className="mt-10">
+          <a
+            className="inline-flex rounded-md bg-signal px-6 py-3.5 text-sm font-semibold text-white hover:bg-signal-strong active:scale-[0.98]"
+            href="mailto:hello@sortieprojects.com?subject=Hire%20Sortie%20talent"
+          >
+            Hire top talent
+          </a>
+        </div>
       </div>
     </section>
   );
