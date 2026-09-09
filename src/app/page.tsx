@@ -13,6 +13,7 @@ import {
 import { BrandLogo } from "@/components/marketing/brand-logo";
 import { SiteHeader } from "@/components/marketing/site-header";
 import { TalentCategoriesSection } from "@/components/marketing/talent-categories-section";
+import { ValuePropsSection } from "@/components/marketing/value-props-section";
 import { LogoMarquee, type Logo } from "@/components/ui/logo-marquee";
 import { ShaderBackground } from "@/components/ui/mesh-portfolio";
 
@@ -107,29 +108,6 @@ const trustLogos: Logo[] = [
     alt: "Claude",
   },
 ];
-
-const valueProps = [
-  {
-    icon: MagnifyingGlass,
-    title: "Hire in days, not months",
-    body: "Submit a role brief and receive matched, already-vetted profiles. Average time to shortlist is measured in days — not recruiting cycles.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Only the top talent",
-    body: "Every network member clears Sortie’s full gauntlet: skills assessments, AI interviews, live coding, integrity checks, and a take-home project.",
-  },
-  {
-    icon: Brain,
-    title: "AI matching that actually ranks",
-    body: "Our matching engine scores skills, seniority, timezone overlap, rate, availability, and integrity — then explains why each candidate fits.",
-  },
-  {
-    icon: Handshake,
-    title: "No-risk trial",
-    body: "Start with a risk-free trial. Pay only if satisfied. If the fit isn’t right, we rematch you with another network member.",
-  },
-] as const;
 
 const hireSteps = [
   {
@@ -253,36 +231,7 @@ export default function Home() {
 
         <TalentCategoriesSection />
 
-        {/* Value props */}
-        <section className="border-b border-line bg-canvas">
-          <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:py-24">
-            <h2 className="max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-              Build exceptional teams, on demand
-            </h2>
-            <div className="mt-12 grid gap-10 sm:grid-cols-2">
-              {valueProps.map((item) => (
-                <article key={item.title} className="flex gap-4">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md border border-line bg-panel">
-                    <item.icon
-                      className="text-signal"
-                      size={22}
-                      weight="regular"
-                      aria-hidden
-                    />
-                  </div>
-                  <div>
-                    <h3 className="font-display text-lg font-semibold">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted">
-                      {item.body}
-                    </p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
+        <ValuePropsSection />
 
         {/* Hiring made easy — Toptal 3 steps */}
         <section id="how-hiring-works" className="border-b border-line bg-panel">
