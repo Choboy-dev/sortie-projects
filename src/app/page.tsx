@@ -6,46 +6,105 @@ import {
   ShieldCheck,
   UsersThree,
 } from "@phosphor-icons/react/dist/ssr";
+import {
+  TalentPhotoCard,
+  type TalentPerson,
+} from "@/components/marketing/talent-photo-card";
+import { SiteHeader } from "@/components/marketing/site-header";
+import { LogoMarquee, type Logo } from "@/components/ui/logo-marquee";
 import { ShaderBackground } from "@/components/ui/mesh-portfolio";
 
-const talent = [
+const talent: TalentPerson[] = [
   {
     name: "Amara Okonkwo",
     title: "Staff Backend Engineer",
     expertise: "Verified Expert in Engineering",
     previously: "Stripe",
+    discipline: "engineering",
+    photo:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=640&h=800&q=80",
   },
   {
     name: "Daniel Cho",
     title: "Senior Product Designer",
     expertise: "Verified Expert in Design",
     previously: "Figma",
+    discipline: "design",
+    photo:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=640&h=800&q=80",
   },
   {
     name: "Sofia Martins",
     title: "ML Engineer",
     expertise: "Verified Expert in AI",
     previously: "DeepMind",
+    discipline: "ai",
+    photo:
+      "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=640&h=800&q=80",
   },
   {
     name: "James Whitfield",
     title: "Engineering Manager",
     expertise: "Verified Expert in Leadership",
     previously: "Shopify",
+    discipline: "leadership",
+    photo:
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=640&h=800&q=80",
   },
   {
     name: "Priya Nair",
     title: "Full-Stack Engineer",
     expertise: "Verified Expert in Engineering",
     previously: "Vercel",
+    discipline: "engineering",
+    photo:
+      "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=640&h=800&q=80",
   },
   {
     name: "Lucas Berger",
     title: "Security Engineer",
     expertise: "Verified Expert in Security",
     previously: "Cloudflare",
+    discipline: "engineering",
+    photo:
+      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=640&h=800&q=80",
   },
-] as const;
+];
+
+const trustLogos: Logo[] = [
+  {
+    src: "https://cdn.21st.dev/assets/mirror/bd/bdf5f3ae72bcfda892a686c03b7932985c694e9a9828643c980601bbc9e53cb4.svg",
+    alt: "Nvidia",
+  },
+  {
+    src: "https://cdn.21st.dev/assets/mirror/31/319eeae853dd1af99d442b6c16b6c38dc52a66a719f8e502c65f85d26255cbd3.svg",
+    alt: "Supabase",
+  },
+  {
+    src: "https://cdn.21st.dev/assets/mirror/2b/2bcdd4124223e3bf8e66bc08ce0ac32a6cc42ffe3584bbecfd377847176a188d.svg",
+    alt: "OpenAI",
+  },
+  {
+    src: "https://cdn.21st.dev/assets/mirror/56/5624b7c243ac8d60e848fb5ea222ec932c1600df54a2762238b37498372fb0c8.svg",
+    alt: "Vercel",
+  },
+  {
+    src: "https://cdn.21st.dev/assets/mirror/90/90f01a9537335666282ae5acc80bd4305f86d085a92d60904c3aa3ccc4414570.svg",
+    alt: "GitHub",
+  },
+  {
+    src: "https://cdn.21st.dev/assets/mirror/96/96517bce3574d648280ff639d01d9889f354b488b3f826db5df746d730232a0c.svg",
+    alt: "Clerk",
+  },
+  {
+    src: "https://cdn.21st.dev/assets/mirror/fc/fc7b090ebcfc468d24a1dc482b2db1fcbfd99ca14568552a30ce553d6dda7fcb.svg",
+    alt: "Turso",
+  },
+  {
+    src: "https://cdn.21st.dev/assets/mirror/e8/e8514b1206f79e1abdafcc1d2632393cc7cfbcbbe25426ac5143b17b184b56b8.svg",
+    alt: "Claude",
+  },
+];
 
 const categories = [
   {
@@ -156,48 +215,7 @@ const skills = [
 export default function Home() {
   return (
     <div className="flex flex-1 flex-col bg-panel text-foreground">
-      <div className="border-b border-line bg-canvas px-4 py-2 text-center text-sm text-muted">
-        Sortie admits only rigorously AI-vetted professionals into a closed
-        talent network — built for mission-critical hiring.
-      </div>
-
-      <header className="sticky top-0 z-30 border-b border-line bg-panel/95 backdrop-blur-md">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-6 py-4">
-          <div className="flex items-center gap-10">
-            <a href="/" className="font-display text-lg font-semibold tracking-tight">
-              Sortie Projects
-            </a>
-            <nav className="hidden items-center gap-6 text-sm text-muted lg:flex">
-              <a className="hover:text-foreground" href="#talent-categories">
-                Top talent
-              </a>
-              <a className="hover:text-foreground" href="#how-hiring-works">
-                How it works
-              </a>
-              <a className="hover:text-foreground" href="#vetting">
-                Vetting
-              </a>
-              <a className="hover:text-foreground" href="#network">
-                Network
-              </a>
-            </nav>
-          </div>
-          <div className="flex items-center gap-2 sm:gap-3">
-            <a
-              className="hidden rounded-md px-4 py-2.5 text-sm font-medium text-foreground hover:bg-canvas sm:inline-flex"
-              href="mailto:hello@sortieprojects.com?subject=Apply%20to%20the%20Sortie%20network"
-            >
-              Apply as talent
-            </a>
-            <a
-              className="rounded-md bg-signal px-4 py-2.5 text-sm font-semibold text-white hover:bg-signal-strong active:scale-[0.98]"
-              href="mailto:hello@sortieprojects.com?subject=Hire%20Sortie%20talent"
-            >
-              Hire talent
-            </a>
-          </div>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main id="main">
         {/* Hero — Toptal pattern: value prop + talent strip */}
@@ -219,13 +237,13 @@ export default function Home() {
           <div className="relative z-10 mx-auto grid w-full max-w-6xl gap-12 px-6 pb-16 pt-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16 lg:pb-20 lg:pt-20">
             <div>
               <h1 className="font-display text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-[3.25rem] lg:leading-[1.1]">
-                Hire the top 1% of freelance talent
+                Talk to the top 1% of candidates only worth your time. Hire in 3
+                days.
               </h1>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted">
-                Sortie is an exclusive network of AI-vetted software developers,
-                designers, product managers, and specialists. Top companies hire
-                Sortie talent for their most important work — without re-running
-                a full interview process unless they choose to.
+                No sourcing, no screening, no chasing candidates. Just show up
+                to interview candidates who made it through our vetting. Only 1%
+                do.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <a
@@ -234,61 +252,21 @@ export default function Home() {
                 >
                   Hire Sortie talent
                 </a>
-                <a
-                  className="rounded-md border border-line px-6 py-3.5 text-sm font-semibold text-foreground hover:bg-canvas active:scale-[0.98]"
-                  href="#how-hiring-works"
-                >
-                  See how hiring works
-                </a>
               </div>
-              <p className="mt-4 text-sm text-muted">
-                No-risk trial. Pay only if satisfied.
-              </p>
             </div>
 
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="grid gap-3 sm:grid-cols-2 sm:gap-3.5">
               {talent.slice(0, 4).map((person) => (
-                <article
-                  key={person.name}
-                  className="rounded-lg border border-line bg-canvas p-4"
-                >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-ink font-display text-sm font-semibold text-chalk">
-                    {person.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </div>
-                  <p className="mt-4 font-display text-base font-semibold text-foreground">
-                    {person.name}
-                  </p>
-                  <p className="mt-1 text-sm text-muted">{person.title}</p>
-                  <p className="mt-3 font-mono text-[11px] font-medium tracking-wide text-signal">
-                    {person.expertise}
-                  </p>
-                  <p className="mt-2 text-xs text-muted">
-                    Previously at{" "}
-                    <span className="font-medium text-foreground">
-                      {person.previously}
-                    </span>
-                  </p>
-                </article>
+                <TalentPhotoCard key={person.name} person={person} />
               ))}
             </div>
           </div>
         </section>
 
-        {/* Trust strip */}
-        <section className="border-b border-line bg-canvas">
-          <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 py-10 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-sm font-medium text-muted">
-              Trusted by startups and enterprises hiring for critical delivery
-            </p>
-            <div className="flex flex-wrap gap-x-8 gap-y-2 font-display text-sm font-semibold tracking-tight text-foreground/45">
-              <span>Series A–C startups</span>
-              <span>Product-led SaaS</span>
-              <span>Global remote teams</span>
-              <span>AI-native companies</span>
-            </div>
+        {/* Trust logos */}
+        <section className="border-b border-line bg-canvas" aria-label="Trusted by leading companies">
+          <div className="mx-auto w-full max-w-7xl px-6 py-10 sm:py-12">
+            <LogoMarquee logos={trustLogos} />
           </div>
         </section>
 
