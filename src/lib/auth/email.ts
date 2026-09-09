@@ -1,12 +1,11 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function sendAuthOtpEmail(input: {
   email: string;
   otp: string;
   type: string;
 }) {
+  const apiKey = process.env.RESEND_API_KEY;
   const from =
     process.env.RESEND_FROM_EMAIL ?? "Sortie Projects <onboarding@resend.dev>";
 
@@ -15,12 +14,14 @@ export async function sendAuthOtpEmail(input: {
       ? "Your Sortie sign-in code"
       : "Your Sortie verification code";
 
-  if (!process.env.RESEND_API_KEY) {
+  if (!apiKey) {
     console.warn(
       `[auth] RESEND_API_KEY missing — OTP for ${input.email}: ${input.otp}`,
     );
     return;
   }
+
+  const resend = new Resend(apiKey);
 
   await resend.emails.send({
     from,
