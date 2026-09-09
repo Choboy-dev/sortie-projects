@@ -143,13 +143,13 @@ export function SiteHeader() {
         <div className="flex items-center gap-2 sm:gap-3">
           <a
             className="hidden rounded-md px-4 py-2.5 text-sm font-medium text-foreground hover:bg-canvas sm:inline-flex"
-            href="mailto:hello@sortieprojects.com?subject=Apply%20to%20the%20Sortie%20network"
+            href="/apply/auth"
           >
             Apply as talent
           </a>
           <a
             className="rounded-md bg-signal px-4 py-2.5 text-sm font-semibold text-white hover:bg-signal-strong active:scale-[0.98]"
-            href="mailto:hello@sortieprojects.com?subject=Hire%20Sortie%20talent"
+            href="/hire/auth"
           >
             Hire talent
           </a>

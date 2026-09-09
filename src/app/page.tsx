@@ -245,7 +245,7 @@ export default function Home() {
                   <div className="mt-8 flex flex-wrap items-center gap-3">
                     <a
                       className="rounded-md bg-signal px-6 py-3.5 text-sm font-semibold text-white hover:bg-signal-strong active:scale-[0.98]"
-                      href="mailto:hello@sortieprojects.com?subject=Hire%20Sortie%20talent"
+                      href="/hire/auth"
                     >
                       Hire Sortie talent
                     </a>
@@ -343,7 +343,7 @@ export default function Home() {
             <div className="flex flex-wrap gap-3">
               <a
                 className="rounded-md bg-signal-dark px-6 py-3.5 text-sm font-semibold text-ink hover:bg-mist active:scale-[0.98]"
-                href="mailto:hello@sortieprojects.com?subject=Start%20hiring%20with%20Sortie"
+                href="/hire/auth"
               >
                 Start hiring
               </a>
