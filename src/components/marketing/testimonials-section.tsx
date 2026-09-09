@@ -5,7 +5,7 @@ import { StaggerTestimonials } from "@/components/ui/stagger-testimonials";
 export function TestimonialsSection() {
   return (
     <section
-      className="border-b border-line bg-panel"
+      className="border-b border-line bg-canvas"
       aria-labelledby="testimonials-heading"
     >
       <div className="mx-auto w-full max-w-6xl px-6 pt-20 sm:pt-24">

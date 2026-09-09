@@ -38,7 +38,7 @@ const features: Step[] = [
 export function ValuePropsSection() {
   return (
     <section
-      className="border-b border-line"
+      className="border-b border-line bg-canvas"
       aria-labelledby="value-props-heading"
     >
       <h2 id="value-props-heading" className="sr-only">
@@ -48,7 +48,7 @@ export function ValuePropsSection() {
         heading="Build exceptional teams, on demand"
         features={features}
       />
-      <div className="-mt-6 bg-canvas px-6 pb-16 text-center sm:px-8 sm:pb-20">
+      <div className="relative z-10 px-6 pb-16 pt-2 text-center sm:px-8 sm:pb-20 sm:pt-4">
         <a
           className="inline-flex rounded-md bg-signal px-6 py-3.5 text-sm font-semibold text-white hover:bg-signal-strong active:scale-[0.98]"
           href="mailto:hello@sortieprojects.com?subject=Hire%20Sortie%20talent"

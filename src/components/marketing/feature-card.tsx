@@ -32,15 +32,15 @@ export function FeatureCard({
 }: FeatureCardProps) {
   return (
     <div className={cn("relative w-full", className)}>
-      <div className="h-full rounded-[25px] border border-line bg-panel p-2 shadow-[0_10px_28px_rgba(15,23,42,0.08)] transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(15,23,42,0.1)]">
+      <div className="flex h-full flex-col rounded-[25px] border border-line bg-panel p-2 shadow-[0_10px_28px_rgba(15,23,42,0.08)] transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(15,23,42,0.1)]">
         <Icon
-          className={cn("mx-auto mb-5 h-8 w-8", colors.text)}
+          className={cn("mx-auto mb-3 mt-2 h-8 w-8 shrink-0", colors.text)}
           weight="regular"
           aria-hidden
         />
         <div
           className={cn(
-            "relative flex h-full flex-col overflow-hidden rounded-[15px] border p-[15px]",
+            "flex min-h-0 flex-1 flex-col overflow-hidden rounded-[15px] border p-[15px]",
             colors.bg,
             colors.border,
           )}

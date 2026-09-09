@@ -1,24 +1,28 @@
 import {
   TalentPhotoCard,
-  type TalentPerson,
 } from "@/components/marketing/talent-photo-card";
-import { BrandLogo } from "@/components/marketing/brand-logo";
+import {
+  NetworkTalentCard,
+  type NetworkTalentPerson,
+} from "@/components/marketing/network-talent-card";
 import { SiteHeader } from "@/components/marketing/site-header";
 import { TalentCategoriesSection } from "@/components/marketing/talent-categories-section";
 import { ValuePropsSection } from "@/components/marketing/value-props-section";
 import { HiringStepsSection } from "@/components/marketing/hiring-steps-section";
 import { VettingSection } from "@/components/marketing/vetting-section";
 import { TestimonialsSection } from "@/components/marketing/testimonials-section";
+import { SiteFooter } from "@/components/marketing/site-footer";
 import { LogoMarquee, type Logo } from "@/components/ui/logo-marquee";
 import { ShaderBackground } from "@/components/ui/mesh-portfolio";
 
-const talent: TalentPerson[] = [
+const talent: NetworkTalentPerson[] = [
   {
     name: "Amara Okonkwo",
     title: "Staff Backend Engineer",
     expertise: "Verified Expert in Engineering",
     previously: "Stripe",
     discipline: "engineering",
+    skills: ["PostgreSQL", "Go", "Distributed Systems"],
     photo:
       "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=640&h=800&q=80",
   },
@@ -28,6 +32,7 @@ const talent: TalentPerson[] = [
     expertise: "Verified Expert in Design",
     previously: "Figma",
     discipline: "design",
+    skills: ["Product Design", "Design Systems", "Prototyping"],
     photo:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=640&h=800&q=80",
   },
@@ -37,6 +42,7 @@ const talent: TalentPerson[] = [
     expertise: "Verified Expert in AI",
     previously: "DeepMind",
     discipline: "ai",
+    skills: ["PyTorch", "LLM Ops", "Python"],
     photo:
       "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=640&h=800&q=80",
   },
@@ -46,6 +52,7 @@ const talent: TalentPerson[] = [
     expertise: "Verified Expert in Leadership",
     previously: "Shopify",
     discipline: "leadership",
+    skills: ["Team Leadership", "Platform", "Hiring"],
     photo:
       "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=640&h=800&q=80",
   },
@@ -55,6 +62,7 @@ const talent: TalentPerson[] = [
     expertise: "Verified Expert in Engineering",
     previously: "Vercel",
     discipline: "engineering",
+    skills: ["TypeScript", "Next.js", "React"],
     photo:
       "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?auto=format&fit=crop&w=640&h=800&q=80",
   },
@@ -64,6 +72,7 @@ const talent: TalentPerson[] = [
     expertise: "Verified Expert in Security",
     previously: "Cloudflare",
     discipline: "engineering",
+    skills: ["AppSec", "Zero Trust", "Threat Modeling"],
     photo:
       "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=640&h=800&q=80",
   },
@@ -121,6 +130,61 @@ const skills = [
   "Data Engineering",
   "Security",
   "Growth Marketing",
+  "Next.js",
+  "PostgreSQL",
+  "Rust",
+  "Java",
+  "Spring Boot",
+  "C#",
+  ".NET",
+  "Ruby on Rails",
+  "PHP",
+  "Laravel",
+  "Django",
+  "FastAPI",
+  "GraphQL",
+  "gRPC",
+  "Redis",
+  "MongoDB",
+  "Snowflake",
+  "dbt",
+  "Apache Spark",
+  "Airflow",
+  "Terraform",
+  "Docker",
+  "Azure",
+  "GCP",
+  "CI/CD",
+  "Observability",
+  "LLM Engineering",
+  "RAG Systems",
+  "Prompt Engineering",
+  "MLOps",
+  "Computer Vision",
+  "NLP",
+  "Figma",
+  "Design Systems",
+  "UX Research",
+  "UI Design",
+  "Motion Design",
+  "Swift",
+  "Kotlin",
+  "Flutter",
+  "React Native",
+  "Cybersecurity",
+  "AppSec",
+  "Zero Trust",
+  "SEO",
+  "Paid Media",
+  "Product Management",
+  "Agile Coaching",
+  "Salesforce",
+  "Shopify",
+  "Blockchain",
+  "Solidity",
+  "Data Analytics",
+  "Power BI",
+  "Tableau",
 ] as const;
 
 export default function Home() {
@@ -216,37 +280,9 @@ export default function Home() {
                 Discover more talent
               </a>
             </div>
-            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
               {talent.map((person) => (
-                <article
-                  key={person.name}
-                  className="rounded-lg border border-line bg-panel p-5"
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-full bg-ink font-display text-xs font-semibold text-chalk">
-                      {person.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
-                    </div>
-                    <span className="rounded-full bg-canvas px-2.5 py-1 font-mono text-[10px] font-medium tracking-wide text-signal">
-                      Network
-                    </span>
-                  </div>
-                  <p className="mt-4 font-display text-base font-semibold">
-                    {person.name}
-                  </p>
-                  <p className="mt-1 text-sm text-muted">{person.title}</p>
-                  <p className="mt-3 text-xs text-muted">
-                    {person.expertise}
-                  </p>
-                  <p className="mt-2 text-xs text-muted">
-                    Previously at{" "}
-                    <span className="font-medium text-foreground">
-                      {person.previously}
-                    </span>
-                  </p>
-                </article>
+                <NetworkTalentCard key={person.name} person={person} />
               ))}
             </div>
           </div>
@@ -267,32 +303,6 @@ export default function Home() {
                   {skill}
                 </span>
               ))}
-            </div>
-            <div className="mt-16 grid gap-8 border-t border-line pt-12 sm:grid-cols-3">
-              <div>
-                <p className="font-display text-4xl font-semibold text-foreground">
-                  &lt;1%
-                </p>
-                <p className="mt-2 text-sm text-muted">
-                  Approximate acceptance into the Sortie network
-                </p>
-              </div>
-              <div>
-                <p className="font-display text-4xl font-semibold text-foreground">
-                  48h
-                </p>
-                <p className="mt-2 text-sm text-muted">
-                  Target window to introduce matched talent for common roles
-                </p>
-              </div>
-              <div>
-                <p className="font-display text-4xl font-semibold text-foreground">
-                  Trial
-                </p>
-                <p className="mt-2 text-sm text-muted">
-                  Risk-free start on every engagement — pay only if satisfied
-                </p>
-              </div>
             </div>
           </div>
         </section>
@@ -327,64 +337,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t border-line bg-canvas">
-        <div className="mx-auto grid w-full max-w-6xl gap-10 px-6 py-14 sm:grid-cols-[1.2fr_1fr_1fr]">
-          <div>
-            <BrandLogo href="/" markClassName="h-8 w-auto" />
-            <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
-              Exclusive AI-vetted talent network. Assessments, interviews, live
-              coding, matching, and hiring — in one platform.
-            </p>
-          </div>
-          <div>
-            <p className="text-sm font-semibold text-foreground">Companies</p>
-            <ul className="mt-3 space-y-2 text-sm text-muted">
-              <li>
-                <a className="hover:text-foreground" href="#how-hiring-works">
-                  How hiring works
-                </a>
-              </li>
-              <li>
-                <a className="hover:text-foreground" href="#talent-categories">
-                  Talent categories
-                </a>
-              </li>
-              <li>
-                <a
-                  className="hover:text-foreground"
-                  href="mailto:hello@sortieprojects.com?subject=Hire%20Sortie%20talent"
-                >
-                  Contact sales
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <p className="text-sm font-semibold text-foreground">Talent</p>
-            <ul className="mt-3 space-y-2 text-sm text-muted">
-              <li>
-                <a className="hover:text-foreground" href="#vetting">
-                  Vetting process
-                </a>
-              </li>
-              <li>
-                <a
-                  className="hover:text-foreground"
-                  href="mailto:hello@sortieprojects.com?subject=Apply%20to%20the%20Sortie%20network"
-                >
-                  Apply to the network
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="border-t border-line">
-          <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-6 py-6 text-xs text-muted sm:flex-row sm:justify-between">
-            <p>© {new Date().getFullYear()} Sortie Projects</p>
-            <p>sortieprojects.com</p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 type BrandLogoProps = {
   className?: string;
   markClassName?: string;
+  wordmarkClassName?: string;
   showWordmark?: boolean;
   href?: string;
   priority?: boolean;
@@ -12,6 +13,7 @@ type BrandLogoProps = {
 export function BrandLogo({
   className,
   markClassName,
+  wordmarkClassName,
   showWordmark = true,
   href = "/",
   priority = false,
@@ -27,7 +29,12 @@ export function BrandLogo({
         className={cn("h-8 w-auto shrink-0 object-contain", markClassName)}
       />
       {showWordmark ? (
-        <span className="font-display text-lg font-semibold tracking-tight text-foreground">
+        <span
+          className={cn(
+            "font-display text-lg font-semibold tracking-tight text-foreground",
+            wordmarkClassName,
+          )}
+        >
           Sortie Projects
         </span>
       ) : (

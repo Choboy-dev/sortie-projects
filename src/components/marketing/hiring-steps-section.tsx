@@ -57,7 +57,7 @@ export function HiringStepsSection() {
           ))}
         </div>
 
-        <div className="mt-12">
+        <div className="mt-16 sm:mt-20">
           <a
             className="inline-flex rounded-md bg-signal px-6 py-3.5 text-sm font-semibold text-white hover:bg-signal-strong active:scale-[0.98]"
             href="mailto:hello@sortieprojects.com?subject=Hire%20Sortie%20talent"
