@@ -60,12 +60,12 @@ export function SkillLandingPage({ model }: { model: SkillPageModel }) {
                 <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted">
                   Related skills
                 </p>
-                <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
+                <ul className="mt-3 flex flex-wrap gap-2">
                   {relatedSkills.map((item) => (
                     <li key={item.href}>
                       <a
                         href={item.href}
-                        className="text-sm font-medium text-foreground/80 transition hover:text-signal"
+                        className="inline-flex rounded-md border border-line bg-canvas px-3 py-1.5 text-sm font-medium text-foreground/85 transition hover:border-signal/40 hover:text-signal"
                       >
                         {item.label}
                       </a>
