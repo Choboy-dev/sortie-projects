@@ -121,21 +121,21 @@ export function SiteHeader() {
 
             <a
               className="rounded-md px-3 py-2 hover:text-foreground"
-              href="#how-hiring-works"
+              href="/#how-hiring-works"
             >
               How it works
             </a>
             <a
               className="rounded-md px-3 py-2 hover:text-foreground"
-              href="#vetting"
+              href="/pricing"
             >
-              Vetting
+              Pricing
             </a>
             <a
               className="rounded-md px-3 py-2 hover:text-foreground"
-              href="#network"
+              href="/about"
             >
-              Network
+              About
             </a>
           </nav>
         </div>
