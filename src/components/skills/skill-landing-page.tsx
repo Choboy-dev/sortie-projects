@@ -165,7 +165,7 @@ export function SkillLandingPage({ model }: { model: SkillPageModel }) {
           </div>
         </section>
 
-        <VettingSection />
+        <VettingSection categoryId={skill.categoryId} />
 
         <section className="border-b border-line bg-canvas">
           <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:py-24">
