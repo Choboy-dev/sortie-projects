@@ -10,7 +10,9 @@ import {
   TalentPhotoCard,
   type TalentPerson,
 } from "@/components/marketing/talent-photo-card";
+import { BrandLogo } from "@/components/marketing/brand-logo";
 import { SiteHeader } from "@/components/marketing/site-header";
+import { TalentCategoriesSection } from "@/components/marketing/talent-categories-section";
 import { LogoMarquee, type Logo } from "@/components/ui/logo-marquee";
 import { ShaderBackground } from "@/components/ui/mesh-portfolio";
 
@@ -105,33 +107,6 @@ const trustLogos: Logo[] = [
     alt: "Claude",
   },
 ];
-
-const categories = [
-  {
-    title: "Developers",
-    body: "Software engineers, architects, and specialists across hundreds of stacks — from backend systems to mobile and AI.",
-  },
-  {
-    title: "Designers",
-    body: "Product, UI/UX, and brand designers who ship production interfaces, not just decks.",
-  },
-  {
-    title: "Product Managers",
-    body: "Operators who turn ambiguous problems into shipped roadmaps and measurable outcomes.",
-  },
-  {
-    title: "Data & AI",
-    body: "Data scientists, ML engineers, and applied researchers ready for production workloads.",
-  },
-  {
-    title: "Marketing Experts",
-    body: "Growth, demand gen, and brand specialists who scale acquisition with accountability.",
-  },
-  {
-    title: "Project Managers",
-    body: "Technical PMs and scrum leaders who keep complex delivery on track.",
-  },
-] as const;
 
 const valueProps = [
   {
@@ -276,40 +251,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Categories — Toptal "Leverage World-class Talent" */}
-        <section id="talent-categories" className="border-b border-line bg-panel">
-          <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:py-24">
-            <div className="max-w-2xl">
-              <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-                Leverage world-class talent on demand
-              </h2>
-              <p className="mt-4 text-lg text-muted">
-                A globally distributed network of top business, design, and
-                technology professionals — ready for your most important
-                initiatives.
-              </p>
-            </div>
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {categories.map((cat) => (
-                <article
-                  key={cat.title}
-                  className="border-t border-line pt-6"
-                >
-                  <h3 className="font-display text-xl font-semibold">
-                    {cat.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">
-                    {cat.body}
-                  </p>
-                </article>
-              ))}
-            </div>
-            <p className="mt-10 text-sm font-medium text-foreground">
-              Plus thousands more skills — whatever specialization your business
-              requires.
-            </p>
-          </div>
-        </section>
+        <TalentCategoriesSection />
 
         {/* Value props */}
         <section className="border-b border-line bg-canvas">
@@ -610,7 +552,7 @@ export default function Home() {
       <footer className="border-t border-line bg-canvas">
         <div className="mx-auto grid w-full max-w-6xl gap-10 px-6 py-14 sm:grid-cols-[1.2fr_1fr_1fr]">
           <div>
-            <p className="font-display text-lg font-semibold">Sortie Projects</p>
+            <BrandLogo href="/" markClassName="h-8 w-auto" />
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
               Exclusive AI-vetted talent network. Assessments, interviews, live
               coding, matching, and hiring — in one platform.

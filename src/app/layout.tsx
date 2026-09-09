@@ -23,6 +23,10 @@ export const metadata: Metadata = {
   title: "Sortie Projects — Hire the top 1% of freelance talent",
   description:
     "Exclusive network of AI-vetted developers, designers, and specialists. Hire for mission-critical work with no-risk trials — or apply to join the network.",
+  icons: {
+    icon: [{ url: "/favicon.png", type: "image/png" }],
+    apple: [{ url: "/apple-touch-icon.png", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

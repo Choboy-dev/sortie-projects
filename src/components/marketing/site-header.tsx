@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { CaretDown } from "@phosphor-icons/react";
+import { BrandLogo } from "@/components/marketing/brand-logo";
 import { cn } from "@/lib/utils";
 import {
   talentCategories,
@@ -82,12 +83,7 @@ export function SiteHeader() {
       >
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-6 py-4">
         <div className="flex items-center gap-10">
-          <a
-            href="/"
-            className="font-display text-lg font-semibold tracking-tight text-foreground"
-          >
-            Sortie Projects
-          </a>
+          <BrandLogo priority markClassName="h-9 w-auto" />
           <nav className="hidden items-center gap-1 text-sm text-muted lg:flex">
             <div
               className="relative"
