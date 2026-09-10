@@ -141,18 +141,27 @@ export function SiteHeader() {
           </nav>
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-3 sm:gap-4">
           <a
-            className="hidden rounded-md px-4 py-2.5 text-sm font-medium text-foreground hover:bg-canvas sm:inline-flex"
-            href="/apply/auth"
-          >
-            Apply as talent
-          </a>
-          <a
-            className="rounded-md bg-signal px-4 py-2.5 text-sm font-semibold text-white hover:bg-signal-strong active:scale-[0.98]"
+            className="hidden text-sm font-medium text-foreground underline underline-offset-4 decoration-foreground/40 transition hover:decoration-foreground sm:inline-flex"
             href="/hire/auth"
           >
-            Hire talent
+            Log in
+          </a>
+          <a
+            className="hidden rounded-md border border-line bg-panel px-4 py-2.5 text-sm font-semibold text-foreground transition hover:border-chalk/40 hover:bg-canvas active:scale-[0.98] sm:inline-flex"
+            href="/apply/auth"
+          >
+            Find jobs
+          </a>
+          <a
+            className="inline-flex items-center gap-1.5 rounded-md bg-signal px-4 py-2.5 text-sm font-semibold text-white hover:bg-signal-strong active:scale-[0.98]"
+            href="/hire/auth"
+          >
+            Start hiring
+            <span aria-hidden className="text-base leading-none">
+              →
+            </span>
           </a>
         </div>
       </div>
