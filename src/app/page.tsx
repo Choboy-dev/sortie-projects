@@ -14,6 +14,7 @@ import { TestimonialsSection } from "@/components/marketing/testimonials-section
 import { SiteFooter } from "@/components/marketing/site-footer";
 import { LogoMarquee, type Logo } from "@/components/ui/logo-marquee";
 import { ShaderBackground } from "@/components/ui/mesh-portfolio";
+import { HeroTalentSlider } from "@/components/marketing/hero-talent-slider";
 
 const talent: NetworkTalentPerson[] = [
   {
@@ -252,7 +253,10 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="grid gap-3 sm:grid-cols-2 sm:gap-3.5">
+                <div className="lg:hidden">
+                  <HeroTalentSlider people={talent.slice(0, 4)} />
+                </div>
+                <div className="hidden gap-3.5 lg:grid lg:grid-cols-2">
                   {talent.slice(0, 4).map((person) => (
                     <TalentPhotoCard key={person.name} person={person} />
                   ))}
