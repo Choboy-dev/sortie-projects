@@ -1,7 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useId, useRef, useState } from "react";
-import { CaretDown } from "@phosphor-icons/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { CaretDown, List, X } from "@phosphor-icons/react";
 import { BrandLogo } from "@/components/marketing/brand-logo";
 import { cn } from "@/lib/utils";
 import {
@@ -9,6 +10,8 @@ import {
   type TalentCategory,
 } from "@/data/talent-menu";
 import { skillHref } from "@/lib/skills";
+
+const softEase = [0.22, 1, 0.36, 1] as const;
 
 function chunkSkills(skills: string[], columns = 3) {
   const size = Math.ceil(skills.length / columns);
@@ -19,10 +22,17 @@ function chunkSkills(skills: string[], columns = 3) {
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [activeId, setActiveId] = useState(talentCategories[0].id);
+  const [mobileTalentOpen, setMobileTalentOpen] = useState(true);
+  const [mobileCategoryId, setMobileCategoryId] = useState<string | null>(
+    talentCategories[0].id,
+  );
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const rootRef = useRef<HTMLElement>(null);
   const menuId = useId();
+  const mobileMenuId = useId();
+  const reduceMotion = useReducedMotion();
 
   const active =
     talentCategories.find((c) => c.id === activeId) ?? talentCategories[0];
@@ -45,6 +55,8 @@ export function SiteHeader() {
     setOpen(true);
   }, [clearCloseTimer]);
 
+  const closeMobile = useCallback(() => setMobileOpen(false), []);
+
   useEffect(() => {
     if (!open) return;
 
@@ -65,6 +77,22 @@ export function SiteHeader() {
     };
   }, [open]);
 
+  useEffect(() => {
+    if (!mobileOpen) return;
+
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMobileOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = previous;
+    };
+  }, [mobileOpen]);
+
   useEffect(() => () => clearCloseTimer(), [clearCloseTimer]);
 
   return (
@@ -82,91 +110,106 @@ export function SiteHeader() {
         ref={rootRef}
         className="sticky top-0 z-40 border-b border-line bg-panel/95 backdrop-blur-md"
       >
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-6 py-4">
-        <div className="flex items-center gap-10">
-          <BrandLogo priority markClassName="h-9 w-auto" />
-          <nav className="hidden items-center gap-1 text-sm text-muted lg:flex">
-            <div
-              className="relative"
-              onMouseEnter={openMenu}
-              onMouseLeave={scheduleClose}
-            >
-              <button
-                type="button"
-                className={cn(
-                  "inline-flex cursor-pointer items-center gap-1 rounded-md px-3 py-2 font-medium transition-colors hover:text-foreground",
-                  open && "text-signal",
-                )}
-                aria-expanded={open}
-                aria-controls={menuId}
-                aria-haspopup="true"
-                onClick={() => setOpen((value) => !value)}
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-6 py-4">
+          <div className="flex items-center gap-10">
+            <BrandLogo priority markClassName="h-9 w-auto" />
+            <nav className="hidden items-center gap-1 text-sm text-muted lg:flex">
+              <div
+                className="relative"
+                onMouseEnter={openMenu}
+                onMouseLeave={scheduleClose}
               >
-                Top talent
-                <CaretDown
+                <button
+                  type="button"
                   className={cn(
-                    "h-3.5 w-3.5 transition-transform duration-200",
-                    open && "rotate-180",
+                    "inline-flex cursor-pointer items-center gap-1 rounded-md px-3 py-2 font-medium transition-colors hover:text-foreground",
+                    open && "text-signal",
                   )}
-                  weight="bold"
-                  aria-hidden
-                />
-              </button>
-              {open ? (
-                <span
-                  className="absolute inset-x-3 -bottom-4 h-0.5 rounded-full bg-signal"
-                  aria-hidden
-                />
-              ) : null}
-            </div>
+                  aria-expanded={open}
+                  aria-controls={menuId}
+                  aria-haspopup="true"
+                  onClick={() => setOpen((value) => !value)}
+                >
+                  Top talent
+                  <CaretDown
+                    className={cn(
+                      "h-3.5 w-3.5 transition-transform duration-200",
+                      open && "rotate-180",
+                    )}
+                    weight="bold"
+                    aria-hidden
+                  />
+                </button>
+                {open ? (
+                  <span
+                    className="absolute inset-x-3 -bottom-4 h-0.5 rounded-full bg-signal"
+                    aria-hidden
+                  />
+                ) : null}
+              </div>
 
+              <a
+                className="rounded-md px-3 py-2 hover:text-foreground"
+                href="/#how-hiring-works"
+              >
+                How it works
+              </a>
+              <a
+                className="rounded-md px-3 py-2 hover:text-foreground"
+                href="/pricing"
+              >
+                Pricing
+              </a>
+              <a
+                className="rounded-md px-3 py-2 hover:text-foreground"
+                href="/about"
+              >
+                About
+              </a>
+            </nav>
+          </div>
+
+          <div className="flex items-center gap-3 sm:gap-4">
             <a
-              className="rounded-md px-3 py-2 hover:text-foreground"
-              href="/#how-hiring-works"
+              className="hidden text-sm font-medium text-foreground underline underline-offset-4 decoration-foreground/40 transition hover:decoration-foreground lg:inline-flex"
+              href="/hire/auth"
             >
-              How it works
+              Log in
             </a>
             <a
-              className="rounded-md px-3 py-2 hover:text-foreground"
-              href="/pricing"
+              className="hidden rounded-md border border-line bg-panel px-4 py-2.5 text-sm font-semibold text-foreground transition hover:border-chalk/40 hover:bg-canvas active:scale-[0.98] lg:inline-flex"
+              href="/apply/auth"
             >
-              Pricing
+              Find jobs
             </a>
             <a
-              className="rounded-md px-3 py-2 hover:text-foreground"
-              href="/about"
+              className="hidden items-center gap-1.5 rounded-md bg-signal px-4 py-2.5 text-sm font-semibold text-white hover:bg-signal-strong active:scale-[0.98] lg:inline-flex"
+              href="/hire/auth"
             >
-              About
+              Start hiring
+              <span aria-hidden className="text-base leading-none">
+                →
+              </span>
             </a>
-          </nav>
+
+            <button
+              type="button"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-line bg-panel text-foreground transition hover:bg-canvas lg:hidden"
+              aria-expanded={mobileOpen}
+              aria-controls={mobileMenuId}
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              onClick={() => setMobileOpen((value) => !value)}
+            >
+              {mobileOpen ? (
+                <X className="h-5 w-5" weight="bold" aria-hidden />
+              ) : (
+                <List className="h-5 w-5" weight="bold" aria-hidden />
+              )}
+            </button>
+          </div>
         </div>
 
-        <div className="flex items-center gap-3 sm:gap-4">
-          <a
-            className="hidden text-sm font-medium text-foreground underline underline-offset-4 decoration-foreground/40 transition hover:decoration-foreground sm:inline-flex"
-            href="/hire/auth"
-          >
-            Log in
-          </a>
-          <a
-            className="hidden rounded-md border border-line bg-panel px-4 py-2.5 text-sm font-semibold text-foreground transition hover:border-chalk/40 hover:bg-canvas active:scale-[0.98] sm:inline-flex"
-            href="/apply/auth"
-          >
-            Find jobs
-          </a>
-          <a
-            className="inline-flex items-center gap-1.5 rounded-md bg-signal px-4 py-2.5 text-sm font-semibold text-white hover:bg-signal-strong active:scale-[0.98]"
-            href="/hire/auth"
-          >
-            Start hiring
-            <span aria-hidden className="text-base leading-none">
-              →
-            </span>
-          </a>
-        </div>
-      </div>
-
-      {open ? (
+        {open ? (
           <div
             id={menuId}
             className="absolute inset-x-0 top-full z-50 hidden border-b border-line bg-panel shadow-[0_24px_48px_rgba(0,0,0,0.45)] lg:block"
@@ -240,8 +283,238 @@ export function SiteHeader() {
               </div>
             </div>
           </div>
-      ) : null}
+        ) : null}
       </header>
+
+      <AnimatePresence>
+        {mobileOpen ? (
+          <>
+            <motion.button
+              type="button"
+              key="mobile-backdrop"
+              className="fixed inset-0 z-50 bg-ink/60 backdrop-blur-[2px] lg:hidden"
+              aria-label="Close menu"
+              initial={reduceMotion ? false : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={
+                reduceMotion
+                  ? { duration: 0 }
+                  : { duration: 0.28, ease: softEase }
+              }
+              onClick={closeMobile}
+            />
+            <motion.aside
+              key="mobile-drawer"
+              id={mobileMenuId}
+              className="fixed inset-y-0 right-0 z-50 flex w-[min(100%,22rem)] flex-col border-l border-line bg-panel shadow-[-24px_0_48px_rgba(0,0,0,0.35)] lg:hidden"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Site menu"
+              initial={reduceMotion ? false : { x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={
+                reduceMotion
+                  ? { duration: 0 }
+                  : { duration: 0.38, ease: softEase }
+              }
+            >
+              <div className="flex items-center justify-between border-b border-line px-5 py-4">
+                <BrandLogo href="/" markClassName="h-7 w-auto" />
+                <button
+                  type="button"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-line text-foreground transition hover:bg-canvas"
+                  aria-label="Close menu"
+                  onClick={closeMobile}
+                >
+                  <X className="h-5 w-5" weight="bold" aria-hidden />
+                </button>
+              </div>
+
+              <nav className="flex-1 overflow-y-auto px-3 py-4">
+                <div className="space-y-1">
+                  <button
+                    type="button"
+                    className="flex w-full items-center justify-between rounded-md px-3 py-3 text-left text-base font-semibold text-foreground"
+                    aria-expanded={mobileTalentOpen}
+                    onClick={() => setMobileTalentOpen((value) => !value)}
+                  >
+                    Top talent
+                    <CaretDown
+                      className={cn(
+                        "h-4 w-4 text-muted transition-transform duration-300",
+                        mobileTalentOpen && "rotate-180",
+                      )}
+                      weight="bold"
+                      aria-hidden
+                    />
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {mobileTalentOpen ? (
+                      <motion.div
+                        key="talent-accordion"
+                        initial={reduceMotion ? false : { height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={
+                          reduceMotion
+                            ? { opacity: 0 }
+                            : { height: 0, opacity: 0 }
+                        }
+                        transition={
+                          reduceMotion
+                            ? { duration: 0 }
+                            : { duration: 0.28, ease: softEase }
+                        }
+                        className="overflow-hidden"
+                      >
+                        <ul className="space-y-1 pb-2 pl-1" role="list">
+                          {talentCategories.map((category) => {
+                            const expanded = mobileCategoryId === category.id;
+                            return (
+                              <li key={category.id}>
+                                <button
+                                  type="button"
+                                  className={cn(
+                                    "flex w-full items-center justify-between rounded-md px-3 py-2.5 text-left text-sm font-medium transition",
+                                    expanded
+                                      ? "bg-canvas text-foreground"
+                                      : "text-muted hover:bg-canvas/70 hover:text-foreground",
+                                  )}
+                                  aria-expanded={expanded}
+                                  onClick={() =>
+                                    setMobileCategoryId((current) =>
+                                      current === category.id
+                                        ? null
+                                        : category.id,
+                                    )
+                                  }
+                                >
+                                  {category.label}
+                                  <CaretDown
+                                    className={cn(
+                                      "h-3.5 w-3.5 transition-transform duration-300",
+                                      expanded && "rotate-180",
+                                    )}
+                                    weight="bold"
+                                    aria-hidden
+                                  />
+                                </button>
+
+                                <AnimatePresence initial={false}>
+                                  {expanded ? (
+                                    <motion.div
+                                      key={`${category.id}-skills`}
+                                      initial={
+                                        reduceMotion
+                                          ? false
+                                          : { height: 0, opacity: 0 }
+                                      }
+                                      animate={{ height: "auto", opacity: 1 }}
+                                      exit={
+                                        reduceMotion
+                                          ? { opacity: 0 }
+                                          : { height: 0, opacity: 0 }
+                                      }
+                                      transition={
+                                        reduceMotion
+                                          ? { duration: 0 }
+                                          : { duration: 0.24, ease: softEase }
+                                      }
+                                      className="overflow-hidden"
+                                    >
+                                      <ul
+                                        className="space-y-0.5 py-1 pl-3"
+                                        role="list"
+                                      >
+                                        <li>
+                                          <a
+                                            href={category.href}
+                                            className="block rounded-md px-3 py-2 text-sm font-semibold text-signal"
+                                            onClick={closeMobile}
+                                          >
+                                            All {category.label} →
+                                          </a>
+                                        </li>
+                                        {category.skills.map((skill) => (
+                                          <li key={skill}>
+                                            <a
+                                              href={skillHref(
+                                                category.id,
+                                                skill,
+                                              )}
+                                              className="block rounded-md px-3 py-2 text-sm text-foreground/85 hover:bg-canvas hover:text-foreground"
+                                              onClick={closeMobile}
+                                            >
+                                              {skill}
+                                            </a>
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    </motion.div>
+                                  ) : null}
+                                </AnimatePresence>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </motion.div>
+                    ) : null}
+                  </AnimatePresence>
+
+                  <a
+                    className="block rounded-md px-3 py-3 text-base font-semibold text-foreground hover:bg-canvas"
+                    href="/#how-hiring-works"
+                    onClick={closeMobile}
+                  >
+                    How it works
+                  </a>
+                  <a
+                    className="block rounded-md px-3 py-3 text-base font-semibold text-foreground hover:bg-canvas"
+                    href="/pricing"
+                    onClick={closeMobile}
+                  >
+                    Pricing
+                  </a>
+                  <a
+                    className="block rounded-md px-3 py-3 text-base font-semibold text-foreground hover:bg-canvas"
+                    href="/about"
+                    onClick={closeMobile}
+                  >
+                    About
+                  </a>
+                </div>
+              </nav>
+
+              <div className="space-y-3 border-t border-line px-5 py-5">
+                <a
+                  className="inline-flex text-sm font-medium text-foreground underline underline-offset-4 decoration-foreground/40"
+                  href="/hire/auth"
+                  onClick={closeMobile}
+                >
+                  Log in
+                </a>
+                <a
+                  className="flex w-full items-center justify-center rounded-md border border-line bg-canvas px-4 py-3 text-sm font-semibold text-foreground"
+                  href="/apply/auth"
+                  onClick={closeMobile}
+                >
+                  Find jobs
+                </a>
+                <a
+                  className="flex w-full items-center justify-center gap-1.5 rounded-md bg-signal px-4 py-3 text-sm font-semibold text-white hover:bg-signal-strong"
+                  href="/hire/auth"
+                  onClick={closeMobile}
+                >
+                  Start hiring
+                  <span aria-hidden>→</span>
+                </a>
+              </div>
+            </motion.aside>
+          </>
+        ) : null}
+      </AnimatePresence>
     </>
   );
 }
