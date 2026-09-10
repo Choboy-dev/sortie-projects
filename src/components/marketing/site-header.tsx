@@ -55,12 +55,6 @@ export function SiteHeader() {
 
   const closeMobile = useCallback(() => setMobileOpen(false), []);
 
-  const openMobile = useCallback(() => {
-    setMobileTalentOpen(false);
-    setMobileCategoryId(null);
-    setMobileOpen(true);
-  }, []);
-
   const toggleMobile = useCallback(() => {
     setMobileOpen((value) => {
       if (value) return false;
@@ -211,7 +205,7 @@ export function SiteHeader() {
               aria-expanded={mobileOpen}
               aria-controls={mobileMenuId}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              onClick={() => setMobileOpen((value) => !value)}
+              onClick={toggleMobile}
             >
               {mobileOpen ? (
                 <X className="h-5 w-5" weight="bold" aria-hidden />
