@@ -45,12 +45,7 @@ export function FeatureCard({
             colors.border,
           )}
         >
-          <span
-            className={cn(
-              "mb-5 font-display text-4xl font-semibold tracking-tight",
-              colors.text,
-            )}
-          >
+          <span className="mb-5 font-display text-4xl font-semibold tracking-tight text-white">
             {number}
           </span>
           <h3 className="mb-2.5 font-display text-xl font-semibold leading-snug tracking-tight text-foreground">
