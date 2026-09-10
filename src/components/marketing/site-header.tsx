@@ -491,15 +491,18 @@ export function SiteHeader() {
                   >
                     About
                   </a>
-                  <a
-                    className="mb-5 inline-flex px-3 py-3 text-base font-medium text-foreground underline underline-offset-4 decoration-foreground/40"
-                    href="/hire/auth"
-                    onClick={closeMobile}
-                  >
-                    Log in
-                  </a>
                 </div>
               </nav>
+
+              <div className="px-5 pb-5">
+                <a
+                  className="inline-flex text-base font-medium text-foreground underline underline-offset-4 decoration-foreground/40"
+                  href="/hire/auth"
+                  onClick={closeMobile}
+                >
+                  Log in
+                </a>
+              </div>
 
               <div className="space-y-3 border-t border-line px-5 py-5">
                 <a
