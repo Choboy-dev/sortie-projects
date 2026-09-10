@@ -24,10 +24,8 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeId, setActiveId] = useState(talentCategories[0].id);
-  const [mobileTalentOpen, setMobileTalentOpen] = useState(true);
-  const [mobileCategoryId, setMobileCategoryId] = useState<string | null>(
-    talentCategories[0].id,
-  );
+  const [mobileTalentOpen, setMobileTalentOpen] = useState(false);
+  const [mobileCategoryId, setMobileCategoryId] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const rootRef = useRef<HTMLElement>(null);
   const menuId = useId();
@@ -56,6 +54,21 @@ export function SiteHeader() {
   }, [clearCloseTimer]);
 
   const closeMobile = useCallback(() => setMobileOpen(false), []);
+
+  const openMobile = useCallback(() => {
+    setMobileTalentOpen(false);
+    setMobileCategoryId(null);
+    setMobileOpen(true);
+  }, []);
+
+  const toggleMobile = useCallback(() => {
+    setMobileOpen((value) => {
+      if (value) return false;
+      setMobileTalentOpen(false);
+      setMobileCategoryId(null);
+      return true;
+    });
+  }, []);
 
   useEffect(() => {
     if (!open) return;
