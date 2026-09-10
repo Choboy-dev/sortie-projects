@@ -35,16 +35,16 @@ export function TalentPhotoCard({
   return (
     <article
       className={cn(
-        "group overflow-hidden rounded-md bg-panel shadow-[0_1px_2px_rgba(0,0,0,0.35),0_8px_24px_rgba(0,0,0,0.28)] ring-1 ring-white/[0.06] transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:shadow-[0_2px_4px_rgba(0,0,0,0.4),0_16px_32px_rgba(0,0,0,0.35)]",
+        "group overflow-hidden rounded-lg bg-panel shadow-[0_1px_2px_rgba(0,0,0,0.35),0_8px_24px_rgba(0,0,0,0.28)] ring-1 ring-white/[0.06] transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:shadow-[0_2px_4px_rgba(0,0,0,0.4),0_16px_32px_rgba(0,0,0,0.35)]",
         stacked
-          ? "flex aspect-square h-auto w-full flex-col"
+          ? "flex aspect-square w-full flex-col"
           : "flex h-full min-h-[148px]",
       )}
     >
       <div
         className={cn(
           "relative shrink-0 bg-canvas",
-          stacked ? "h-[58%] w-full" : "w-[42%] self-stretch",
+          stacked ? "h-[56%] w-full" : "w-[42%] self-stretch",
         )}
       >
         <Image
@@ -53,7 +53,7 @@ export function TalentPhotoCard({
           fill
           sizes={
             stacked
-              ? "(max-width: 1024px) 80vw, 280px"
+              ? "(max-width: 1024px) 260px, 280px"
               : "(max-width: 640px) 40vw, 180px"
           }
           className="object-cover object-top"
@@ -64,15 +64,15 @@ export function TalentPhotoCard({
         className={cn(
           "flex min-w-0 flex-1 flex-col",
           stacked
-            ? "justify-between px-4 py-3.5"
+            ? "justify-between gap-2 px-4 py-3.5"
             : "justify-center px-3.5 py-3.5 sm:px-4",
         )}
       >
-        <div>
+        <div className="min-w-0">
           <h3
             className={cn(
-              "font-display font-semibold leading-snug tracking-tight text-foreground",
-              stacked ? "text-base" : "text-[15px] sm:text-base",
+              "font-display font-semibold leading-snug tracking-tight text-white",
+              stacked ? "text-lg" : "text-[15px] text-foreground sm:text-base",
             )}
           >
             {person.name}
@@ -80,22 +80,35 @@ export function TalentPhotoCard({
           <p
             className={cn(
               "mt-1.5 flex items-start gap-1.5 leading-snug text-muted",
-              stacked ? "text-sm" : "text-[13px]",
+              stacked ? "text-[15px]" : "text-[13px]",
             )}
           >
             <Icon
-              className="mt-0.5 h-3.5 w-3.5 shrink-0 text-muted"
+              className={cn(
+                "mt-0.5 shrink-0 text-muted",
+                stacked ? "h-4 w-4" : "h-3.5 w-3.5",
+              )}
               weight="regular"
               aria-hidden
             />
-            <span>{person.title}</span>
+            <span className="min-w-0">{person.title}</span>
           </p>
         </div>
-        <div className={cn(stacked ? "mt-3" : "mt-3")}>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-muted/80">
+        <div className="min-w-0">
+          <p
+            className={cn(
+              "font-semibold uppercase tracking-[0.14em] text-muted",
+              stacked ? "text-[11px]" : "text-[10px] text-muted/80",
+            )}
+          >
             Previously at
           </p>
-          <div className="mt-1.5 flex min-h-[22px] items-center">
+          <div
+            className={cn(
+              "mt-1.5 flex items-center",
+              stacked ? "min-h-[28px] scale-110 origin-left" : "min-h-[22px]",
+            )}
+          >
             <CompanyLogo company={person.previously} />
           </div>
         </div>

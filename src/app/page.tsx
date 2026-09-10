@@ -253,7 +253,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="lg:hidden">
+                <div className="w-full min-w-0 lg:hidden">
                   <HeroTalentSlider people={talent.slice(0, 4)} />
                 </div>
                 <div className="hidden gap-3.5 lg:grid lg:grid-cols-2">

@@ -1,38 +1,56 @@
 "use client";
 
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-} from "@/components/ui/services-card";
+import useEmblaCarousel from "embla-carousel-react";
+import { ArrowLeft, ArrowRight } from "@phosphor-icons/react";
 import {
   TalentPhotoCard,
   type TalentPerson,
 } from "@/components/marketing/talent-photo-card";
 
 export function HeroTalentSlider({ people }: { people: TalentPerson[] }) {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "center",
+    loop: true,
+    containScroll: false,
+  });
+
   return (
-    <Carousel
-      opts={{
-        align: "start",
-        loop: true,
-        dragFree: false,
-      }}
-      className="w-full"
-      aria-label="Featured Sortie talent"
-    >
-      <CarouselContent className="-ml-3">
-        {people.map((person) => (
-          <CarouselItem
-            key={person.name}
-            className="basis-[78%] pl-3 min-[420px]:basis-[70%] sm:basis-[58%]"
-          >
-            <TalentPhotoCard person={person} layout="stacked" />
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselNext className="right-1 top-[42%] z-10 -translate-y-1/2 border-line bg-panel/95 text-foreground shadow-lg hover:bg-canvas hover:text-foreground disabled:opacity-40" />
-    </Carousel>
+    <div className="relative w-full" aria-label="Featured Sortie talent">
+      <div
+        className="overflow-hidden"
+        ref={emblaRef}
+        style={{ touchAction: "pan-y pinch-zoom" }}
+      >
+        <div className="flex">
+          {people.map((person) => (
+            <div
+              key={person.name}
+              className="w-[min(78vw,260px)] min-w-0 shrink-0 grow-0 px-2"
+            >
+              <TalentPhotoCard person={person} layout="stacked" />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-4 flex items-center justify-center gap-3">
+        <button
+          type="button"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line bg-panel text-foreground shadow-sm transition hover:bg-canvas active:scale-[0.98]"
+          aria-label="Previous talent"
+          onClick={() => emblaApi?.scrollPrev()}
+        >
+          <ArrowLeft className="h-4 w-4" weight="bold" aria-hidden />
+        </button>
+        <button
+          type="button"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line bg-panel text-foreground shadow-sm transition hover:bg-canvas active:scale-[0.98]"
+          aria-label="Next talent"
+          onClick={() => emblaApi?.scrollNext()}
+        >
+          <ArrowRight className="h-4 w-4" weight="bold" aria-hidden />
+        </button>
+      </div>
+    </div>
   );
 }
