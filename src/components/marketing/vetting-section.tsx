@@ -150,7 +150,7 @@ export function VettingSection({
 
         <div className="mt-16 sm:mt-20">
           <a
-            className="inline-flex rounded-md bg-signal-dark px-6 py-3.5 text-sm font-semibold text-ink hover:bg-mist active:scale-[0.98]"
+            className="inline-flex rounded-md bg-signal px-6 py-3.5 text-sm font-semibold text-white hover:bg-signal-strong active:scale-[0.98]"
             href="/hire/auth"
           >
             Hire talent
