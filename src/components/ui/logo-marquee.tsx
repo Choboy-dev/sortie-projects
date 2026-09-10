@@ -132,7 +132,7 @@ const LogoImage = memo(function LogoImage({ logo }: { logo: Logo }) {
       width={logo.width}
       height={logo.height}
       loading="lazy"
-      className="pointer-events-none h-6 w-auto max-w-[7.5rem] object-contain object-center select-none opacity-90 md:h-7"
+      className="pointer-events-none h-6 w-auto max-w-[7.5rem] object-contain object-center select-none opacity-80 brightness-0 invert md:h-7"
       style={{ filter: "none" }}
     />
   );

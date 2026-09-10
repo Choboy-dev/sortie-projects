@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     icon: [{ url: "/favicon.png", type: "image/png" }],
     apple: [{ url: "/apple-touch-icon.png", type: "image/png" }],
   },
+  other: {
+    "theme-color": "#0b0a09",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

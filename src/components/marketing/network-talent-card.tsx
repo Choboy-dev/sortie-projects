@@ -27,7 +27,7 @@ export function NetworkTalentCard({ person }: { person: NetworkTalentPerson }) {
     disciplineIcon[person.discipline as keyof typeof disciplineIcon] ?? Code;
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-md bg-panel shadow-[0_1px_2px_rgba(15,23,42,0.04),0_6px_18px_rgba(15,23,42,0.05)] ring-1 ring-black/[0.04] transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:shadow-[0_2px_4px_rgba(15,23,42,0.05),0_12px_24px_rgba(15,23,42,0.08)]">
+    <article className="group flex h-full flex-col overflow-hidden rounded-md bg-panel shadow-[0_1px_2px_rgba(0,0,0,0.35),0_6px_18px_rgba(0,0,0,0.28)] ring-1 ring-white/[0.06] transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:shadow-[0_2px_4px_rgba(0,0,0,0.4),0_12px_24px_rgba(0,0,0,0.35)]">
       <div className="relative aspect-[5/4] w-full shrink-0 bg-canvas">
         <Image
           src={person.photo}

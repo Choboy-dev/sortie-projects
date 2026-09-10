@@ -2,29 +2,29 @@
 
 :root {
   /* Brand / marketing (dark chamber) */
-  --ink: #07140f;
-  --ink-elevated: #0c1f18;
-  --signal-dark: #1fa97a;
-  --signal-dark-strong: #178a63;
-  --mist: #b7f0d4;
-  --chalk: #f3f7f5;
+  --ink: #050403;
+  --ink-elevated: #100e0c;
+  --signal-dark: #b54e3c;
+  --signal-dark-strong: #964132;
+  --mist: #e8d0c6;
+  --chalk: #f4efe9;
 
-  /* Work UI (light structural) */
-  --canvas: #f3f7f5;
-  --panel: #ffffff;
-  --foreground: #0c1410;
-  --muted: #5c6b63;
-  --line: #d5e0d9;
-  --signal: #0f8f6c;
-  --signal-strong: #0a6b51;
+  /* Work UI (dark structural) */
+  --canvas: #0b0a09;
+  --panel: #131110;
+  --foreground: #f4efe9;
+  --muted: #9a9188;
+  --line: #2a2622;
+  --signal: #964132;
+  --signal-strong: #7a3428;
 
   /* Semantic */
-  --danger: #c43c3c;
-  --warn: #c48a1a;
-  --ok: #1fa97a;
-  --focus: #1fa97a;
+  --danger: #e05a5a;
+  --warn: #d4a017;
+  --ok: #b54e3c;
+  --focus: #b54e3c;
 
-  /* Defaults for light surfaces */
+  /* Defaults for dark surfaces */
   --background: var(--canvas);
 }
 
@@ -55,6 +55,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    color-scheme: dark;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -70,8 +71,8 @@
   }
 
   ::selection {
-    background: color-mix(in oklab, var(--signal) 35%, white);
-    color: var(--ink);
+    background: color-mix(in oklab, var(--signal) 45%, transparent);
+    color: var(--chalk);
   }
 
   :focus-visible {

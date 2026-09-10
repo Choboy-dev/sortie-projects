@@ -28,10 +28,10 @@ export async function sendAuthOtpEmail(input: {
     to: input.email,
     subject,
     html: `
-      <div style="font-family: Figtree, Helvetica, Arial, sans-serif; max-width: 480px; margin: 0 auto; color: #0c1410;">
+      <div style="font-family: Figtree, Helvetica, Arial, sans-serif; max-width: 480px; margin: 0 auto; color: #131110;">
         <p style="font-size: 16px; line-height: 1.5;">Your Sortie code is:</p>
-        <p style="font-size: 32px; letter-spacing: 0.2em; font-weight: 700; color: #0f8f6c;">${input.otp}</p>
-        <p style="font-size: 14px; color: #5c6b63; line-height: 1.5;">
+        <p style="font-size: 32px; letter-spacing: 0.2em; font-weight: 700; color: #964132;">${input.otp}</p>
+        <p style="font-size: 14px; color: #6b635c; line-height: 1.5;">
           This code expires in 10 minutes. If you didn’t request it, you can ignore this email.
         </p>
       </div>

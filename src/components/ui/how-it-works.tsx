@@ -69,7 +69,7 @@ export default function HowItWorks({
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.06]"
           style={{
-            backgroundImage: "linear-gradient(#0c1410 1px, transparent 1px)",
+            backgroundImage: "linear-gradient(#2a2622 1px, transparent 1px)",
             backgroundSize: "100% 32px",
             marginTop: "4px",
           }}

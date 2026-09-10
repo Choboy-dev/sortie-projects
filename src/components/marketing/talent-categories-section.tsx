@@ -20,7 +20,7 @@ const talentServices: Service[] = [
     description:
       "Software engineers, architects, and specialists across hundreds of stacks — from backend systems to mobile and AI.",
     icon: Code,
-    gradient: "from-canvas via-[#e7f3ee] to-[#d8ebe3]",
+    gradient: "from-canvas via-[#1a1210] to-[#2a1814]",
   },
   {
     number: "002",
@@ -28,7 +28,7 @@ const talentServices: Service[] = [
     description:
       "Product, UI/UX, and brand designers who ship production interfaces, not just decks.",
     icon: Palette,
-    gradient: "from-[#eef4f1] via-canvas to-[#dce9e2]",
+    gradient: "from-[#161210] via-canvas to-[#241612]",
   },
   {
     number: "003",
@@ -36,7 +36,7 @@ const talentServices: Service[] = [
     description:
       "Operators who turn ambiguous problems into shipped roadmaps and measurable outcomes.",
     icon: RocketLaunch,
-    gradient: "from-[#e6f0eb] to-[#f3f7f5]",
+    gradient: "from-[#1c1411] to-[#120e0c]",
   },
   {
     number: "004",
@@ -44,7 +44,7 @@ const talentServices: Service[] = [
     description:
       "Data scientists, ML engineers, and applied researchers ready for production workloads.",
     icon: Brain,
-    gradient: "from-[#e0efe8] via-[#ebf5f0] to-canvas",
+    gradient: "from-[#201510] via-[#2a1814] to-canvas",
   },
   {
     number: "005",
@@ -52,7 +52,7 @@ const talentServices: Service[] = [
     description:
       "Growth, demand gen, and brand specialists who scale acquisition with accountability.",
     icon: ChartLineUp,
-    gradient: "from-canvas to-[#d9ebe3]",
+    gradient: "from-canvas to-[#241612]",
   },
   {
     number: "006",
@@ -60,7 +60,7 @@ const talentServices: Service[] = [
     description:
       "Technical PMs and scrum leaders who keep complex delivery on track.",
     icon: UsersThree,
-    gradient: "from-[#e8f2ed] to-[#f4f8f6]",
+    gradient: "from-[#1a1210] to-[#100e0c]",
   },
 ];
 

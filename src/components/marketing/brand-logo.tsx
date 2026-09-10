@@ -23,8 +23,8 @@ export function BrandLogo({
       <Image
         src="/brand/sortie-mark.png"
         alt=""
-        width={84}
-        height={75}
+        width={139}
+        height={137}
         priority={priority}
         className={cn("h-8 w-auto shrink-0 object-contain", markClassName)}
       />

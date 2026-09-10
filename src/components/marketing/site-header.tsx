@@ -160,7 +160,7 @@ export function SiteHeader() {
       {open ? (
           <div
             id={menuId}
-            className="absolute inset-x-0 top-full z-50 hidden border-b border-line bg-panel shadow-[0_24px_48px_rgba(15,23,42,0.12)] lg:block"
+            className="absolute inset-x-0 top-full z-50 hidden border-b border-line bg-panel shadow-[0_24px_48px_rgba(0,0,0,0.45)] lg:block"
             onMouseEnter={openMenu}
             onMouseLeave={scheduleClose}
             role="region"

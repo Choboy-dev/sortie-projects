@@ -5,8 +5,8 @@ import type { ShowcaseTalent } from "@/lib/skills/types";
 
 export function SkillTalentCard({ person }: { person: ShowcaseTalent }) {
   return (
-    <article className="grid gap-6 rounded-lg border border-line bg-panel p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04),0_8px_24px_rgba(15,23,42,0.04)] ring-1 ring-black/[0.03] transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-signal/25 hover:shadow-[0_2px_4px_rgba(15,23,42,0.05),0_14px_28px_rgba(15,23,42,0.07)] sm:grid-cols-[160px_minmax(0,1fr)] sm:gap-8 sm:p-6">
-      <div className="relative mx-auto aspect-[4/5] w-full max-w-[160px] overflow-hidden rounded-md bg-canvas ring-1 ring-black/[0.04] sm:mx-0">
+    <article className="grid gap-6 rounded-lg border border-line bg-panel p-5 shadow-[0_1px_2px_rgba(0,0,0,0.35),0_8px_24px_rgba(0,0,0,0.28)] ring-1 ring-white/[0.06] transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-signal/25 hover:shadow-[0_2px_4px_rgba(0,0,0,0.4),0_14px_28px_rgba(0,0,0,0.35)] sm:grid-cols-[160px_minmax(0,1fr)] sm:gap-8 sm:p-6">
+      <div className="relative mx-auto aspect-[4/5] w-full max-w-[160px] overflow-hidden rounded-md bg-canvas ring-1 ring-white/[0.06] sm:mx-0">
         <Image
           src={person.photo}
           alt={person.name}

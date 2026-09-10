@@ -232,7 +232,7 @@ const ServiceCard = ({
         ease: [0.22, 1, 0.36, 1],
       }}
       className={cn(
-        "relative flex h-[420px] w-full flex-col justify-between overflow-hidden rounded-3xl bg-gradient-to-br p-8 ring-1 ring-black/[0.04]",
+        "relative flex h-[420px] w-full flex-col justify-between overflow-hidden rounded-3xl bg-gradient-to-br p-8 ring-1 ring-white/[0.06]",
         service.gradient,
       )}
     >

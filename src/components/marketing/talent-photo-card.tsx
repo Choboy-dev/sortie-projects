@@ -22,7 +22,7 @@ export function TalentPhotoCard({ person }: { person: TalentPerson }) {
   const Icon = disciplineIcon[person.discipline];
 
   return (
-    <article className="group flex h-full min-h-[148px] overflow-hidden rounded-md bg-white shadow-[0_1px_2px_rgba(15,23,42,0.04),0_8px_24px_rgba(15,23,42,0.06)] ring-1 ring-black/[0.04] transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:shadow-[0_2px_4px_rgba(15,23,42,0.05),0_16px_32px_rgba(15,23,42,0.1)]">
+    <article className="group flex h-full min-h-[148px] overflow-hidden rounded-md bg-panel shadow-[0_1px_2px_rgba(0,0,0,0.35),0_8px_24px_rgba(0,0,0,0.28)] ring-1 ring-white/[0.06] transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:shadow-[0_2px_4px_rgba(0,0,0,0.4),0_16px_32px_rgba(0,0,0,0.35)]">
       <div className="relative w-[42%] shrink-0 self-stretch bg-canvas">
         <Image
           src={person.photo}
@@ -34,7 +34,7 @@ export function TalentPhotoCard({ person }: { person: TalentPerson }) {
       </div>
 
       <div className="flex min-w-0 flex-1 flex-col justify-center px-3.5 py-3.5 sm:px-4">
-        <h3 className="font-display text-[15px] font-semibold leading-snug tracking-tight text-ink sm:text-base">
+        <h3 className="font-display text-[15px] font-semibold leading-snug tracking-tight text-foreground sm:text-base">
           {person.name}
         </h3>
         <p className="mt-1.5 flex items-start gap-1.5 text-[13px] leading-snug text-muted">
