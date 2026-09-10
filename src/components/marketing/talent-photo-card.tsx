@@ -94,7 +94,7 @@ export function TalentPhotoCard({
             <span className="min-w-0">{person.title}</span>
           </p>
         </div>
-        <div className="min-w-0">
+        <div className="min-w-0 shrink-0">
           <p
             className={cn(
               "font-semibold uppercase tracking-[0.14em] text-muted",
@@ -106,7 +106,7 @@ export function TalentPhotoCard({
           <div
             className={cn(
               "mt-1.5 flex items-center",
-              stacked ? "min-h-[28px] scale-110 origin-left" : "min-h-[22px]",
+              stacked ? "min-h-[24px]" : "min-h-[22px]",
             )}
           >
             <CompanyLogo company={person.previously} />
