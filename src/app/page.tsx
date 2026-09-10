@@ -342,7 +342,7 @@ export default function Home() {
             </div>
             <div className="flex flex-wrap gap-3">
               <a
-                className="rounded-md bg-signal-dark px-6 py-3.5 text-sm font-semibold text-ink hover:bg-mist active:scale-[0.98]"
+                className="rounded-md bg-signal px-6 py-3.5 text-sm font-semibold text-white hover:bg-signal-strong active:scale-[0.98]"
                 href="/hire/auth"
               >
                 Start hiring
