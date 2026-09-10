@@ -18,7 +18,7 @@ export function SkillTalentCard({ person }: { person: ShowcaseTalent }) {
 
       <div className="min-w-0">
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-          <h3 className="font-display text-xl font-semibold tracking-tight text-signal">
+          <h3 className="font-display text-xl font-semibold tracking-tight text-white sm:text-[1.35rem]">
             {person.name}
           </h3>
           <p className="text-sm text-muted">{person.location}</p>
@@ -26,8 +26,8 @@ export function SkillTalentCard({ person }: { person: ShowcaseTalent }) {
 
         <p className="mt-1 text-sm font-medium text-foreground">{person.title}</p>
 
-        <p className="mt-2 flex items-center gap-1.5 text-sm font-medium text-signal">
-          <CheckCircle className="h-4 w-4 shrink-0" weight="fill" aria-hidden />
+        <p className="mt-2 flex items-center gap-1.5 text-[15px] font-medium text-white">
+          <CheckCircle className="h-4 w-4 shrink-0 text-white" weight="fill" aria-hidden />
           {person.expertise}
         </p>
 

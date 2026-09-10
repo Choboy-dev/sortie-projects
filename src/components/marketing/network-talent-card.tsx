@@ -39,13 +39,13 @@ export function NetworkTalentCard({ person }: { person: NetworkTalentPerson }) {
       </div>
 
       <div className="flex flex-1 flex-col px-3.5 pb-3.5 pt-3">
-        <h3 className="font-display text-[15px] font-semibold tracking-tight text-signal">
+        <h3 className="font-display text-base font-semibold tracking-tight text-white sm:text-[17px]">
           {person.name}
         </h3>
 
-        <p className="mt-1.5 flex items-center gap-1 text-[12px] font-medium leading-snug text-signal">
+        <p className="mt-1.5 flex items-center gap-1 text-[13px] font-medium leading-snug text-white sm:text-sm">
           <CheckCircle
-            className="h-3.5 w-3.5 shrink-0"
+            className="h-4 w-4 shrink-0 text-white"
             weight="fill"
             aria-hidden
           />
